@@ -13,7 +13,6 @@ const components = {
   page: Page,
 };
 
-console.log("The token is ", process.env.NEXT_PUBLIC_STORYBLOK_TOKEN);
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
   use: [apiPlugin],
