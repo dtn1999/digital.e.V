@@ -1,3 +1,37 @@
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  height: 100%;
+  font-family: "Cabin", sans-serif;
+}
+
+/* 
+colors:
+#e5c8ac
+#5f9ea1
+#e13839
+#755b54
+#080808
+#4c888b
+#365757
+#3e322e
+#374344
+*/
+
+video {
+  position: absolute;
+  object-fit: cover;
+  object-size: cover;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Montserrat";
+  }
+}
