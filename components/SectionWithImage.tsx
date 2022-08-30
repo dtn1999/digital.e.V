@@ -12,7 +12,7 @@ const SectionWithImage: React.FC<BaseStoryBlockProps> = React.memo(
     return (
       <Container>
         <div
-          className={cn("grid grid-cols-1 md:grid-cols-2 bg-[#F0F0F0]")}
+          className={cn("grid grid-cols-1 md:grid-cols-2 bg-[#F0F0F0] mt-36")}
           {...storyblokEditable(blok)}
         >
           <div className="w-full h-full pr-5">
