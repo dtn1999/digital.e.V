@@ -4,16 +4,19 @@ import {
   getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
+import { NextPage } from "next/types";
 
-export default function Home({ story }) {
-  story = useStoryblokState(story, { customParent: 'http://localhost:3000'});
+const Home: NextPage<any> = ({ story }) => {
+  story = useStoryblokState(story, { customParent: "http://localhost:3000" });
 
   return (
     <Layout>
       <StoryblokComponent blok={story.content} />
     </Layout>
   );
-}
+};
+
+export default Home;
 
 export async function getStaticProps() {
   // the slug of the story
