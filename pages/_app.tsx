@@ -1,4 +1,5 @@
 import "../styles/tailwind.css";
+import "../styles/ReactSwipper.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 import type { AppProps } from "next/app";
 import Feature from "../components/Feature";
