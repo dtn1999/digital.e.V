@@ -4,8 +4,9 @@ import {
   getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
+import { NextPage } from "next/types";
 
-export default function Home({ story }) {
+const IndexPage: NextPage<any> = ({ story }) => {
   story = useStoryblokState(story);
 
   return (
@@ -13,7 +14,8 @@ export default function Home({ story }) {
       <StoryblokComponent blok={story.content} />
     </Layout>
   );
-}
+};
+export default IndexPage;
 
 export async function getStaticProps() {
   // the slug of the story
