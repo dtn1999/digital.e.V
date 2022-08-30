@@ -1,9 +1,9 @@
 import React from "react";
-import { storyblokEditable } from "@storyblok/react";
+import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
 import { BaseStoryBlockProps } from "../types/global";
 import Image from "next/image";
-interface Props {}
+
 const SectionWithImage: React.FC<BaseStoryBlockProps> = React.memo(
   ({ blok }) => {
     return (
@@ -16,8 +16,13 @@ const SectionWithImage: React.FC<BaseStoryBlockProps> = React.memo(
             <Image src="" alt="" layout="fill" objectFit="cover" />
           </div>
         </div>
-        <div className="w-full h-full px-5 py-7 bg-[#F0F0F0]"></div>
-        SectionWithImage
+        <div className="w-full h-full px-5 py-7 bg-[#F0F0F0]">
+          {blok.blocks.map((blok: any) => (
+            <div key={blok._uid} className="flex-auto px-6">
+              <StoryblokComponent blok={blok} />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
