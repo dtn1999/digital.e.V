@@ -7,6 +7,7 @@ import Page from "../components/Page";
 import Teaser from "../components/Teaser";
 import HeroSection from "../components/Hero";
 import SectionWithImage from "../components/SectionWithImage";
+import Paragraph from "../components/Paragraph";
 
 const components = {
   feature: Feature,
@@ -15,6 +16,7 @@ const components = {
   page: Page,
   VideoHeroSection: HeroSection,
   SectionWithImage: SectionWithImage,
+  Paragraph: Paragraph,
 };
 
 storyblokInit({
