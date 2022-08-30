@@ -12,7 +12,7 @@ interface Props {
 }
 
 SwiperCore.use([Autoplay, Pagination]);
-const SectionTestimonial: React.FC<Props> = React.memo(({ slides = [] }) => {
+const Carousel: React.FC<Props> = React.memo(({ slides = [] }) => {
   const pagination = usePagination();
   return (
     <Swiper
@@ -64,4 +64,4 @@ const SectionTestimonial: React.FC<Props> = React.memo(({ slides = [] }) => {
     </Swiper>
   );
 });
-export default SectionTestimonial;
+export default Carousel;
