@@ -11,9 +11,9 @@ const nextConfig = {
       "www.pexels.com",
       "i.imgur.com",
       "digitalebildungfueralle.org",
-      "a.storyblok.com"
+      "a.storyblok.com",
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

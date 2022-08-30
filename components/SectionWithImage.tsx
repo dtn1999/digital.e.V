@@ -6,14 +6,16 @@ import Image from "next/image";
 
 const SectionWithImage: React.FC<BaseStoryBlockProps> = React.memo(
   ({ blok }) => {
+    console.log("SectionWithImage", blok);
+    const imageUrl = blok.image.filename;
     return (
       <div
-        className={cn("grid grid-cols-1 md:grid-cols-2")}
+        className={cn("grid grid-cols-1 md:grid-cols-2 bg-[#F0F0F0]")}
         {...storyblokEditable(blok)}
       >
         <div className="w-full h-full px-5">
           <div className="w-full h-full relative">
-            <Image src="" alt="" layout="fill" objectFit="cover" />
+            <Image src={imageUrl} alt="" layout="fill" objectFit="cover" />
           </div>
         </div>
         <div className="w-full h-full px-5 py-7 bg-[#F0F0F0]">
