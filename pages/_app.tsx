@@ -12,7 +12,7 @@ const components = {
   grid: Grid,
   teaser: Teaser,
   page: Page,
-  "hero-section": HeroSection,
+  "video-hero-section": HeroSection,
 };
 
 storyblokInit({
