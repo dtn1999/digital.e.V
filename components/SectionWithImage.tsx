@@ -16,7 +16,7 @@ const SectionWithImage: React.FC<BaseStoryBlockProps> = React.memo(
           {...storyblokEditable(blok)}
         >
           <div className="w-full h-full pr-5">
-            <div className="w-full h-full relative">
+            <div className="w-full h-full relative max-h-[800px]">
               <Image src={imageUrl} alt="" layout="fill" objectFit="cover" />
             </div>
           </div>

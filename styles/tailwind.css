@@ -4,7 +4,7 @@ body > div:first-child,
 div#__next,
 div#__next > div {
   height: 100%;
-  font-family: "Cabin", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* yarn
