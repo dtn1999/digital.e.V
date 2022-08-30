@@ -6,13 +6,15 @@ import Grid from "../components/Grid";
 import Page from "../components/Page";
 import Teaser from "../components/Teaser";
 import HeroSection from "../components/Hero";
+import SectionWithImage from "../components/SectionWithImage";
 
 const components = {
   feature: Feature,
   grid: Grid,
   teaser: Teaser,
   page: Page,
-  "video-hero-section": HeroSection,
+  VideoHeroSection: HeroSection,
+  SectionWithImage: SectionWithImage,
 };
 
 storyblokInit({
