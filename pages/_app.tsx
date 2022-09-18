@@ -6,17 +6,9 @@ import type { AppContext, AppProps } from "next/app";
 import App from "next/app";
 import { ToastContainer } from "react-toastify";
 import { AnimatePresence, motion } from "framer-motion";
-
-import Feature from "../_components/Feature";
-import Grid from "../_components/Grid";
-import Page from "../_components/Page";
-import Teaser from "../_components/Teaser";
-import HeroSection from "../_components/Hero";
-import SectionWithImage from "../_components/SectionWithImage";
-import Paragraph from "../_components/Paragraph";
-import Carousel from "../_components/Carousel";
 import NextSplashScreen from "../components/pages/LoadingScreen";
 import LoadingScreen from "../components/pages/LoadingScreen/LoadingScreen";
+import PageWrapperComponent from "../components/pages/Page";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -25,14 +17,7 @@ const variants = {
 };
 
 const components = {
-  feature: Feature,
-  grid: Grid,
-  teaser: Teaser,
-  page: Page,
-  VideoHeroSection: HeroSection,
-  SectionWithImage: SectionWithImage,
-  Carousel: Carousel,
-  Paragraph: Paragraph,
+  page: PageWrapperComponent,
 };
 
 storyblokInit({
