@@ -5,21 +5,13 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import cn from "classnames";
 import ReCAPTCHA from "react-google-recaptcha";
-import { ButtonVariant, FormFragment } from "@app/types/graphql";
-import FormFieldSwitcher from "./FormFieldManager";
-import { useDynamicForm } from "@app/hooks/useDynamicForm";
-import { SITE_KEY } from "@app/utils/envVariables";
 import { toast } from "react-toastify";
+import { useDynamicForm } from "../../../hooks/useDynamicForm";
+import { handleRecaptchaValidation } from "../../../lib/handleRecaptchaValidation";
+import Button from "../../common/Button";
 
-interface Props {
-  fields: Required<FormFragment["fields"][number]>[];
-  submitButtonLabel: string;
-  onSubmit: SubmitHandler<any>;
-}
-
-const DynamicForm: React.FC<Props> = React.memo(
+const DynamicForm: React.FC<any> = React.memo(
   ({ fields, submitButtonLabel, onSubmit }) => {
     const methods = useForm<any>();
     const {
@@ -59,12 +51,8 @@ const DynamicForm: React.FC<Props> = React.memo(
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(handleOnSubmit)}>
           {formFieldsComponent}
-          <ReCAPTCHA ref={recaptchaRef} sitekey={SITE_KEY} className="mb-4" />
-          <Button
-            variant={ButtonVariant.Solid}
-            disabled={isSubmitting}
-            type="submit"
-          >
+          <ReCAPTCHA ref={recaptchaRef} sitekey={""} className="mb-4" />
+          <Button disabled={isSubmitting} type="submit">
             {submitButtonLabel}
           </Button>
         </form>
