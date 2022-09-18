@@ -16,20 +16,23 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const {data }= await getStoryblokApi().get("cdn/links/", {
+  const { data } = await getStoryblokApi().get("cdn/links/", {
     starts_with: "pages/",
     version: "draft",
   });
 
-  if(!data || !data.links) return {paths: [], fallback: false}
+  if (!data || !data.links) return { paths: [], fallback: false };
 
-  const paths = data.links.map((link: any) => ({
-     params: { slug: link.slug.replace("pages/", "")}
-  }));
+  const paths = data.links
+    .map(({ slug }: any) => slug.replace("pages/", ""))
+    .map((slug: string) => {
+      return { params: { slug: slug === "home" ? [] : [slug] } };
+    });
 
-  console.log(paths)
+  console.log(paths);
+
   return {
-    paths: [{ params: { slug: [""] } }],
+    paths,
     fallback: false,
   };
 };
