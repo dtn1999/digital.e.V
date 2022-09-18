@@ -1,15 +1,8 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import cn from "classnames";
-import {
-  TeamSectionFragment,
-  CollaboratorSectionFragment,
-  ProjectSectionFragment,
-  SectionFragment,
-  ServiceSectionFragment,
-  TestimonialSectionFragment,
-  SectionWithImageFragment,
-} from "@app/types/graphql";
+import Headline from "../Blocks/Headline";
+import Container from "../common/Container";
 
 const SectionWithImage = dynamic(() => import("./SectionWithImage"));
 const ProjectSection = dynamic(() => import("./ProjectSection"));
@@ -18,51 +11,33 @@ const MemberSection = dynamic(() => import("./TeamSection"));
 const TestimonialSection = dynamic(() => import("./TestimonialSection"));
 const ServiceSection = dynamic(() => import("./ServiceSection"));
 
-type SectionSwitcherProps = NonNullable<SectionFragment["type"]>;
-
-const SectionSwitcher: React.FC<SectionSwitcherProps> = React.memo(
+const SectionSwitcher: React.FC<any> = React.memo(
   ({ typename, __typename, ...data }) => {
     //@ts-ignore
     const { id } = data;
     console.log("section", data);
     switch (typename) {
       case "SectionWithImage":
-        return <SectionWithImage {...(data as SectionWithImageFragment)} />;
+        return <SectionWithImage {...(data as any)} />;
       case "SectionCurrentProject":
-        return <ProjectSection {...(data as SectionCurrentProjectFragment)} />;
+        return <ProjectSection {...(data as any)} />;
       case "SectionAdministrativeTeam":
-        return (
-          <MemberSection
-            {...(data as SectionAdministrativeTeamFragment)}
-          />
-        );
+        return <MemberSection {...(data as any)} />;
       case "SectionCollaborator":
-        return (
-          <CollaboratorSection {...(data as SectionCollaboratorFragment)} />
-        );
+        return <CollaboratorSection {...(data as any)} />;
       case "SectionTestimonial":
-        return <TestimonialSection {...(data as SectionTestimonialFragment)} />;
+        return <TestimonialSection {...(data as any)} />;
       case "SectionService":
-        //@ts-ignore
-        return <SectionServices {...(data as SectionServiceFragment)} />;
+        return <ServiceSection {...(data as any)} />;
       default:
         return <React.Fragment></React.Fragment>;
     }
   }
 );
 
-interface Props {
-  sections: {
-    id: string;
-    backgroundColor: SectionFragment["backgroundColor"];
-    headline: SectionFragment["title"];
-    type: SectionSwitcherProps;
-  }[];
-}
-
-const SectionsManager: React.FC<Props> = React.memo(({ sections }) => {
+const SectionsManager: React.FC<any> = React.memo(({ sections }) => {
   const sectionsComponents = React.useMemo(() => {
-    const res = sections.map((section) => (
+    const res = sections.map((section: any) => (
       <div
         key={section.id}
         className={cn("py-10", {
@@ -72,7 +47,7 @@ const SectionsManager: React.FC<Props> = React.memo(({ sections }) => {
       >
         {section.headline && (
           <div className="mb-11 mt-5 flex justify-center">
-            <HeadlineComponent
+            <Headline
               value={section.headline.text}
               underline
               underlineAlign="center"
