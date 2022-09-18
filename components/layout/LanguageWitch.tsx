@@ -1,5 +1,3 @@
-/* eslint-disable tailwindcss/no-custom-classname */
-/* eslint-disable tailwindcss/no-contradicting-classname */
 import React from "react";
 import cn from "classnames";
 interface Props {}
