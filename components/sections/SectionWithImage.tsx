@@ -2,14 +2,13 @@ import React from "react";
 import cn from "classnames";
 import { BsChevronRight } from "react-icons/bs";
 import { motion } from "framer-motion";
-import { slideLeftRight } from "@app/animations";
 import Image from "next/image";
-import { SectionWithImageFragment } from "@app/types/graphql";
-import BlockManager from "@app/theme/blocks/BlockManager";
 import { useRouter } from "next/router";
 import Headline from "../Blocks/Headline";
+import { slideLeftRight } from "../../animations";
+import BlockManager from "../Blocks/BlockManager";
 
-const SectionWithImg: React.FC<SectionWithImageFragment> = React.memo(
+const SectionWithImg: React.FC<any> = React.memo(
   ({ image, imagePosition, backgroundColor, headline, cta, blocks = [] }) => {
     const router = useRouter();
     const navigate = React.useCallback(
