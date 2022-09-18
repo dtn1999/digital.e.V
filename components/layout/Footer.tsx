@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ButtonVariant } from "@app/types/graphql";
 import Container from "../common/Container";
 import Button from "../common/Button";
 import Headline from "../Blocks/Headline";
@@ -24,7 +23,7 @@ const Footer: React.FC<Props> = React.memo(({}) => {
               passion.
             </p>
             <Link href="/become-member">
-              <Button variant={ButtonVariant.Solid} className="mt-5 w-full">
+              <Button variant="solid" className="mt-5 w-full">
                 Become Member
               </Button>
             </Link>
