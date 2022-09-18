@@ -1,19 +1,16 @@
 import React from "react";
 import cn from "classnames";
 import { useSwiperSlide } from "swiper/react";
-import { container, fadeInOut } from "@app/animations";
-import Button from "@app/components/common/Button/Button";
 import { motion } from "framer-motion";
 import { BsChevronRight } from "react-icons/bs";
-import Text from "@app/theme/blocks/Text";
-import Container from "@app/components/Container/Container";
 import Image from "next/image";
-import { ButtonVariant, CarouselSlideFragment } from "@app/types/graphql";
 import { useRouter } from "next/router";
 import NavigationControls from "./NavigationControls";
-import Headline from "@app/components/common/Headline";
+import { container, fadeInOut } from "../../../../animations";
+import Headline from "../../../Blocks/Headline";
+import Button from "../../../common/Button";
 
-const CarouselSlide: React.FC<CarouselSlideFragment> = React.memo(
+const CarouselSlide: React.FC<any> = React.memo(
   ({ image, title, description, cta, id, headline }) => {
     const { isActive } = useSwiperSlide();
     const router = useRouter();
@@ -24,30 +21,7 @@ const CarouselSlide: React.FC<CarouselSlideFragment> = React.memo(
       },
       [router]
     );
-    const parseHeadline = (str: string) => {
-      const words = str.replace("\n", "<br/>").split(" ");
-      return words.map((word, index) => {
-        if (word.startsWith("{") || word.endsWith("}")) {
-          return (
-            <span key={index} className="mx-2 text-primary">
-              {word.replace("{", "").replace("}", "")}
-            </span>
-          );
-        } else if (word.startsWith("[") || word.endsWith("]")) {
-          return (
-            <span key={index} className="mx-2 text-accent">
-              {word.replace("[", " ").replace("]", "")}
-            </span>
-          );
-        }
-        return (
-          <span key={index} className="mx-2">
-            {word}
-          </span>
-        );
-      });
-    };
-    console.log(parseHeadline(headline || ""));
+
     return (
       <div className="relative grid h-full w-full grid-cols-1 px-5  md:px-20">
         <div className="flex h-full w-full flex-col justify-start pt-5 md:pt-24">
@@ -82,7 +56,7 @@ const CarouselSlide: React.FC<CarouselSlideFragment> = React.memo(
                   <Button
                     onClick={() => handleClick((cta.link as any).slug)}
                     className="space-x-1 bg-accent text-xs font-medium text-white"
-                    variant={ButtonVariant.Solid}
+                    variant="solid"
                   >
                     <span className="text-primary">{cta.label}</span>
                     <BsChevronRight className="text-primary" />
