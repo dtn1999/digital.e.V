@@ -1,5 +1,9 @@
 import React from "react";
-import { getStoryblokApi } from "@storyblok/react";
+import {
+  getStoryblokApi,
+  StoryblokComponent,
+  useStoryblokState,
+} from "@storyblok/react";
 import cn from "classnames";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { PageProps } from "../types/global";
@@ -7,16 +11,14 @@ import Layout from "../components/layout";
 
 interface Props {}
 
-const Page: NextPage<PageProps & { story: string }> = React.memo(
+const Page: NextPage<PageProps & { story: any }> = React.memo(
   ({ layout, story }) => {
     const { navBar, footer, socialHandles } = layout;
-
+    const storyParams = useStoryblokState(story);
     return (
-      <Layout
-        navBar={navBar}
-        footer={footer}
-        socialHandles={socialHandles}
-      ></Layout>
+      <Layout navBar={navBar} footer={footer} socialHandles={socialHandles}>
+        <StoryblokComponent blok={story.content} />
+      </Layout>
     );
   }
 );
