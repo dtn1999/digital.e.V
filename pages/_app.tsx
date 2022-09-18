@@ -1,8 +1,11 @@
+import React from "react";
 import "../styles/tailwind.css";
 import "../styles/ReactSwipper.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react";
 import type { AppContext, AppProps } from "next/app";
 import App from "next/app";
+import { ToastContainer } from "react-toastify";
+import { AnimatePresence, motion } from "framer-motion";
 
 import Feature from "../_components/Feature";
 import Grid from "../_components/Grid";
@@ -12,6 +15,14 @@ import HeroSection from "../_components/Hero";
 import SectionWithImage from "../_components/SectionWithImage";
 import Paragraph from "../_components/Paragraph";
 import Carousel from "../_components/Carousel";
+import NextSplashScreen from "../components/pages/LoadingScreen";
+import LoadingScreen from "../components/pages/LoadingScreen/LoadingScreen";
+
+const variants = {
+  hidden: { opacity: 0 },
+  enter: { opacity: 1 },
+  exit: { opacity: 0 },
+};
 
 const components = {
   feature: Feature,
@@ -31,7 +42,41 @@ storyblokInit({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const [loading, setLoading] = React.useState<boolean>(false);
+  return (
+    <React.Fragment>
+      <NextSplashScreen
+        loading={loading}
+        setLoading={setLoading}
+        component={<LoadingScreen />}
+      />
+      <AnimatePresence exitBeforeEnter>
+        {!loading && (
+          <motion.main
+            variants={variants}
+            initial="hidden"
+            animate="enter"
+            exit="exit"
+            transition={{ type: "linear" }}
+            className="h-full w-full"
+          >
+            <Component {...pageProps} />
+          </motion.main>
+        )}
+      </AnimatePresence>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </React.Fragment>
+  );
 }
 
 MyApp.getInitialProps = async (appContext: AppContext) => {
@@ -39,7 +84,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const { locale } = appContext.ctx;
 
   const { data } = await getStoryblokApi().get("cdn/links/", {
-    start_with: `pages/`,
+    starts_with: "pages/",
     version: "draft",
   });
 
@@ -52,11 +97,18 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       ...link,
       href: link.slug.replace("pages/", ""),
     }));
-  console.log("data", data);
+
+  console.log("data", links);
   return {
     ...appProps,
     pageProps: {
-      layout: {},
+      layout: {
+        navBar: {
+          links,
+          ctas: [],
+        },
+        socialHandles: [],
+      },
     },
   };
 };

@@ -1,12 +1,23 @@
 import React from "react";
 import { getStoryblokApi } from "@storyblok/react";
 import cn from "classnames";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { PageProps } from "../types/global";
+import Layout from "../components/layout";
 
 interface Props {}
 
-const Page: React.FC<Props> = React.memo(({}) => {
-  return <div className={cn("")}> Page </div>;
+const Page: NextPage<PageProps> = React.memo(({ layout }) => {
+  console.log(layout);
+  const { navBar, footer, socialHandles } = layout;
+
+  return (
+    <Layout
+      navBar={navBar}
+      footer={footer}
+      socialHandles={socialHandles}
+    ></Layout>
+  );
 });
 
 export const getStaticProps: GetStaticProps = async (context) => {
