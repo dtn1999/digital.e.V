@@ -1,15 +1,12 @@
 import React from "react";
 import cn from "classnames";
-import { SectionAdministrativeTeamFragment } from "@app/types/graphql";
 import Image from "next/image";
-interface Props {
-  team: SectionAdministrativeTeamFragment["team"];
-}
-const AdministrativeTeamSection: React.FC<Props> = React.memo(
+
+const AdministrativeTeamSection: React.FC<any> = React.memo(
   ({ team = [] }) => {
     return (
       <div className={cn("grid md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 mb-8")}>
-        {team.map(({ id, profileImage, position, name }) => (
+        {team.map(({ id, profileImage, position, name }:any) => (
           <div key={id} className="flex flex-col">
             <div className="relative overflow-hidden rounded-full pb-[100%]">
               <Image
