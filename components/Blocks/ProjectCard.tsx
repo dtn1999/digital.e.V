@@ -1,15 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { GetProjectsByLocaleQuery } from "@app/types/graphql";
-interface Props {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-}
-const ProjectCard: React.FC<GetProjectsByLocaleQuery["projects"][number]> =
-  React.memo(({ id, name, image, description, slug }) => {
+
+const ProjectCard: React.FC<any["projects"][number]> = React.memo(
+  ({ id, name, image, description, slug }) => {
     const index = Math.round(Math.random() * 4) % 4;
 
     return (
@@ -45,5 +39,6 @@ const ProjectCard: React.FC<GetProjectsByLocaleQuery["projects"][number]> =
         </div>
       </Link>
     );
-  });
+  }
+);
 export default ProjectCard;
