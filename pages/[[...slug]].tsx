@@ -23,8 +23,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   if (!data || !data.links) return { paths: [], fallback: false };
 
-  const paths = data.links
-    .map(({ slug }: any) => slug.replace("pages/", ""))
+  const paths = Object.keys(data.links)
+    .map((linkKey) => data.links[linkKey].slug)
+    .map((absolutePath: string) => absolutePath.replace("pages/", ""))
     .map((slug: string) => {
       return { params: { slug: slug === "home" ? [] : [slug] } };
     });
