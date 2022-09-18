@@ -1,16 +1,13 @@
 import React from "react";
 import cn from "classnames";
-import { FormFragment } from "@app/types/graphql";
-import FormCheckbox from "../FormCheckbox";
-import FormInput from "../FormInput";
-import FormRadio from "../FormRadio";
-import FormSelect from "../FormSelect";
-import FormTextarea from "../FormTextarea";
+import FormCheckbox from "./FormCheckbox";
+import FormInput from "./FormInput";
+import FormRadio from "./FormRadio";
+import FormSelect from "./FormSelect";
+import FormTextarea from "./FormTextarea";
 
-type FormFieldType = FormFragment["fields"][number]["typename"];
-type Props = Required<FormFragment["fields"][number]> & { error?: any };
 
-const FormFieldSwitcher: React.FC<Props> = React.memo(
+const FormFieldSwitcher: React.FC<any> = React.memo(
   ({ typename, __typename, error, ...field }) => {
     switch (typename || __typename) {
       case "FormInput":
