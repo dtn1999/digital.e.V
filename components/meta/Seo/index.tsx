@@ -1,8 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import { Seo } from "@app/types/graphql";
 
-const Seo: React.FC<Seo> = React.memo(({ title, description, image }) => {
+const Seo: React.FC<any> = React.memo(({ title, description, image }) => {
   return (
     <React.Fragment>
       <Head>

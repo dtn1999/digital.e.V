@@ -1,27 +1,26 @@
 import React from "react";
 import cn from "classnames";
-import { BaseProps } from "@app/types";
-
 import LanguageSwitch from "./LanguageWitch";
 import { useMeasure } from "react-use";
-import SeoComponent from "@app/components/meta/Seo";
-import { NavBarContext } from "src/context/NavBarContext";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import SocialsHandles from "../Blocks/SocialsHandles";
+import { BaseProps } from "../../types/global";
+import Seo from "../meta/Seo";
+
 interface Props extends BaseProps {
   seo?: any;
   navBar: any;
   footer: any;
   socialHandles: any[];
 }
+
 const Layout: React.FC<Props> = React.memo(
   ({ children, navBar, socialHandles, seo }) => {
     const [ref, { height }] = useMeasure<any>();
-    const { navbarSticky } = React.useContext(NavBarContext);
     return (
       <React.Fragment>
-        {seo && <SeoComponent {...seo} />}
+        {seo && <Seo {...seo} />}
         <div className={cn("relative w-full h-full")}>
           <NavBar
             ref={ref}
@@ -30,7 +29,7 @@ const Layout: React.FC<Props> = React.memo(
             headerHeight={height}
           />
           <main
-            style={{ marginTop: navbarSticky ? height : 0 }}
+            style={{}}
             className="h-full w-full"
           >
             {children}
