@@ -1,8 +1,8 @@
 import React from "react";
 import cn from "classnames";
-import { BaseProps } from "@app/types";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useSwiper } from "swiper/react";
+import { BaseProps } from "../../../../types/global";
 
 interface Props extends BaseProps {
   arrowStyle?: string;
