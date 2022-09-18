@@ -1,12 +1,11 @@
 import React from "react";
-import { SectionServiceFragment } from "@app/types/graphql";
 import ReactIconsLoader from "../common/ReactIconsLoader";
 
-const SectionServices: React.FC<Required<SectionServiceFragment>> = React.memo(
+const SectionServices: React.FC<any> = React.memo(
   ({ services = [] }) => {
     return (
       <div className="grid w-full grid-cols-1 md:grid-cols-3">
-        {services.map((service) => (
+        {services.map((service:any) => (
           <div
             key={service.id}
             className="mb-9 flex w-full flex-col items-center px-4"
