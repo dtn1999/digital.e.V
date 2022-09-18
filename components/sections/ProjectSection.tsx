@@ -1,17 +1,9 @@
 import React from "react";
 import cn from "classnames";
-import {
-  ButtonVariant,
-  SectionCurrentProject,
-  SectionCurrentProjectFragment,
-} from "@app/types/graphql";
 import Image from "next/image";
-import Button from "@app/components/common/Button/Button";
 import { motion } from "framer-motion";
 import Link from "next/link";
-interface Props {
-  projects: SectionCurrentProjectFragment["projects"];
-}
+import Button from "../common/Button";
 
 export const container = {
   hidden: { opacity: 0 },
@@ -34,7 +26,7 @@ export const fadeInOut = {
   },
 };
 
-const ProjectSection: React.FC<Props> = React.memo(({ projects }) => {
+const ProjectSection: React.FC<any> = React.memo(({ projects }) => {
   return (
     <React.Fragment>
       <motion.div
@@ -45,7 +37,7 @@ const ProjectSection: React.FC<Props> = React.memo(({ projects }) => {
         viewport={{ once: false }}
         className={cn("w-full grid md:grid-cols-2 xl:grid-cols-3")}
       >
-        {projects.map((project, index) => (
+        {projects.map((project: any, index: number) => (
           <div
             key={project.id}
             className="flex h-full w-full items-center justify-center"
@@ -81,7 +73,7 @@ const ProjectSection: React.FC<Props> = React.memo(({ projects }) => {
       </motion.div>
       <div className="flex w-full items-center justify-center pb-8">
         <Link href="/projects">
-          <Button variant={ButtonVariant.Outline}>see all</Button>
+          <Button variant="solid">see all</Button>
         </Link>
       </div>
     </React.Fragment>
