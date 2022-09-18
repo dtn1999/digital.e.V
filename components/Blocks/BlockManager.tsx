@@ -1,10 +1,4 @@
 import React from "react";
-import { BaseProps } from "@app/types";
-import {
-  ColumnblocksUnion,
-  SectionWithImageblocksUnion,
-  SectionWithImageFragment,
-} from "@app/types/graphql";
 import dynamic from "next/dynamic";
 
 
@@ -14,21 +8,8 @@ const AccordionComponent = dynamic(() => import("./Accordion"));
 const TabComponent = dynamic(() => import("./Tab"));
 const MultiColumnComponent = dynamic(() => import("./MultiColumn"));
 
-type BlockTypename =
-  | NonNullable<SectionWithImageblocksUnion["__typename"]>
-  | NonNullable<ColumnblocksUnion["__typename"]>;
 
-interface Props extends BaseProps {
-  blocks: SectionWithImageFragment["blocks"];
-}
-
-interface BlockSwitcherProps {
-  typename: BlockTypename;
-  // TODO: fix type for data
-  data: any;
-}
-
-const BlockSwitcher: React.FC<BlockSwitcherProps> = React.memo(
+const BlockSwitcher: React.FC<any> = React.memo(
   ({ typename, data }) => {
     switch (typename) {
       case "Accordion":
@@ -59,7 +40,7 @@ const BlockSwitcher: React.FC<BlockSwitcherProps> = React.memo(
   }
 );
 
-const BlockManager: React.FC<Props> = React.memo(({ blocks }) => {
+const BlockManager: React.FC<any> = React.memo(({ blocks }) => {
   const blocksComponents = React.useMemo(() => {
     // @ts-ignore
     return blocks.map(({ id, typename, ...props }) => (
