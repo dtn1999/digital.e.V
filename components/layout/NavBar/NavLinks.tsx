@@ -1,9 +1,8 @@
 import React from "react";
 import cn from "classnames";
-import Button from "@app/components/common/Button/Button";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { ButtonFragment, ButtonVariant } from "@app/types/graphql";
+import Button from "../../common/Button";
 
 interface Props {
   links: any[];
@@ -14,7 +13,7 @@ interface Props {
   isSticky?: boolean;
 }
 
-const NavCtas: React.FC<{ ctas: ButtonFragment[]; isSticky?: boolean }> =
+const NavCtas: React.FC<{ ctas: any[]; isSticky?: boolean }> =
   React.memo(({ ctas }) => {
     const router = useRouter();
     const handleClick = React.useCallback(
@@ -29,7 +28,7 @@ const NavCtas: React.FC<{ ctas: ButtonFragment[]; isSticky?: boolean }> =
         {ctas.map((cta) => (
           <Button
             key={cta.id}
-            variant={cta.variant as ButtonVariant}
+            variant="solid"
             onClick={() => handleClick((cta.link as any)?.slug)}
             className="hidden text-sm font-medium lg:flex lg:text-xs"
           >
