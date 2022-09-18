@@ -1,13 +1,12 @@
 import React from "react";
 import cn from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import { fadeInRight } from "@app/animations";
 import NavLinks from "./NavLinks";
 import NavButtonMenu from "./NavButtonMenu";
 import { useRouter } from "next/router";
-import { NavBarContext } from "src/context/NavBarContext";
 import Image from "next/image";
 import Link from "next/link";
+import { fadeInRight } from "../../../animations";
 
 interface Props {
   links: any[];
@@ -18,10 +17,8 @@ interface Props {
 
 const NavBar = React.forwardRef<HTMLHeadElement, Props>(
   ({ links, headerHeight, ctas }, ref) => {
-    const { navbarSticky } = React.useContext(NavBarContext);
-
     // states
-    const [isSticky, setIsSticky] = React.useState<boolean>(navbarSticky);
+    const [isSticky, setIsSticky] = React.useState<boolean>(false);
     const [isMobileNavOpen, setIsMobileNavOpen] =
       React.useState<boolean>(false);
     const router = useRouter();
