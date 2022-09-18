@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
-import FormCheckBox from "@app/components/Blocks/Form/FormCheckbox";
-import Headline from "@app/components/Blocks/Headline";
+import Headline from "../../Blocks/Headline";
+import FormCheckBox from "../../Blocks/Form/FormCheckbox";
 
 interface Props {
   collaborators: any[];
