@@ -37,20 +37,22 @@ function MyApp({ Component, pageProps }: AppProps) {
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const appProps = await App.getInitialProps(appContext);
   const { locale } = appContext.ctx;
+
   const { data } = await getStoryblokApi().get("cdn/links/", {
-    starts_with: "pages/",
+    start_with: `pages/`,
     version: "draft",
   });
 
-  if (!data || !data.links) return { paths: [], fallback: false };
-
-  const paths = Object.keys(data.links)
-    .map((linkKey) => data.links[linkKey].slug)
-    .map((absolutePath: string) => absolutePath.replace("pages/", ""))
-    .map((slug: string) => {
-      return { params: { slug: slug === "home" ? [] : [slug] } };
-    });
-
+  const links = Object.keys(data.links)
+    .map((linkKey) => ({
+      slug: data.links[linkKey].slug,
+      label: data.links[linkKey].name,
+    }))
+    .map((link) => ({
+      ...link,
+      href: link.slug.replace("pages/", ""),
+    }));
+  console.log("data", data);
   return {
     ...appProps,
     pageProps: {
