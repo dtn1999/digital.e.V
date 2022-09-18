@@ -1,13 +1,11 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import React from "react";
 import cn from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 
 import Image from "next/image";
-import Button from "@app/components/common/Button/Button";
 import Link from "next/link";
-import { ButtonVariant } from "@app/types/graphql";
+import Button from "../../common/Button";
 interface Props {
   slides: any[];
 }
@@ -46,7 +44,7 @@ const ExhibitionCarousel: React.FC<Props> = React.memo(({ slides = [] }) => {
           <div className="absolute inset-0 z-10 flex flex-col items-center bg-black/60 text-white">
             <h6 className="mt-11 text-base font-bold">{slide.title}</h6>
             <h3 className="my-5 text-4xl font-bold">{slide.description}</h3>
-            <Button variant={ButtonVariant.Outline}>
+            <Button variant="solid">
               <Link href="#">
                 <a className="text-white">see more</a>
               </Link>
