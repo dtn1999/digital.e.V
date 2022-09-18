@@ -1,16 +1,9 @@
 import React from "react";
 import cn from "classnames";
-import { BaseProps } from "@app/types";
-import { SocialHandle } from "@app/types/graphql";
-import ReactIconsLoader from "@app/components/Icons";
+import ReactIconsLoader from "../common/ReactIconsLoader";
 
-interface Props extends BaseProps {
-  orientation?: "horizontal" | "vertical";
-  socials: SocialHandle[];
-  withCustomTextColor?: boolean;
-}
 
-const SocialsHandles: React.FC<Props> = React.memo(
+const SocialsHandles: React.FC<any> = React.memo(
   ({ orientation, socials, className, withCustomTextColor }) => {
     return (
       <div
@@ -26,7 +19,7 @@ const SocialsHandles: React.FC<Props> = React.memo(
           writingMode: orientation === "vertical" ? "vertical-rl" : undefined,
         }}
       >
-        {socials.map((item, index) => (
+        {socials.map((item:any, index:number) => (
           <div key={index} className=" flex items-center">
             <a
               href={item.url}
