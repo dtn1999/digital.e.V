@@ -6,14 +6,11 @@ import {
   useForm,
 } from "react-hook-form";
 import cn from "classnames";
-// eslint-disable-next-line import/no-named-as-default
 import ReCAPTCHA from "react-google-recaptcha";
 import { ButtonVariant, FormFragment } from "@app/types/graphql";
 import FormFieldSwitcher from "./FormFieldManager";
-import Button from "@app/components/common/Button/Button";
 import { useDynamicForm } from "@app/hooks/useDynamicForm";
 import { SITE_KEY } from "@app/utils/envVariables";
-import { handleRecaptchaValidation } from "@app/lib/handleRecaptchaValidation";
 import { toast } from "react-toastify";
 
 interface Props {
