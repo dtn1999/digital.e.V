@@ -28,18 +28,17 @@ const Layout: React.FC<Props> = React.memo(
             ctas={navBar.ctas}
             headerHeight={height}
           />
-          <main
-            style={{}}
-            className="h-full w-full"
-          >
+          <main style={{}} className="h-full w-full">
             {children}
-            <div className="w-full bg-[#E8E8E8]">
-              <SocialsHandles
-                socials={socialHandles}
-                className="flex-wrap py-[10px] text-black"
-                withCustomTextColor
-              />
-            </div>
+            {socialHandles.length > 0 && (
+              <div className="w-full bg-[#E8E8E8]">
+                <SocialsHandles
+                  socials={socialHandles}
+                  className="flex-wrap py-[10px] text-black"
+                  withCustomTextColor
+                />
+              </div>
+            )}
             <Footer />
           </main>
           <div className="fixed -right-5 top-48 z-[100] flex items-center">
