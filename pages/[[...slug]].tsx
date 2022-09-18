@@ -10,6 +10,13 @@ const Page: React.FC<Props> = React.memo(({}) => {
 });
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as any;
+  const pageSlug = slug === undefined ? "home" : slug[0];
+  const { data } = await getStoryblokApi().get("cdn/stories", {
+    by_slugs: `pages/${pageSlug}`,
+    version: "draft",
+  });
+  console.log("slug", data);
   return {
     props: {},
   };
@@ -29,8 +36,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .map((slug: string) => {
       return { params: { slug: slug === "home" ? [] : [slug] } };
     });
-
-  console.log(paths);
 
   return {
     paths,
