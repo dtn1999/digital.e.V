@@ -638,6 +638,11 @@ core-js-pure@^3.20.2:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.25.0.tgz#f8d1f176ff29abbfeb610110de891d5ae5a361d4"
   integrity sha512-IeHpLwk3uoci37yoI2Laty59+YqH9x5uR65/yiA0ARAJrTrN4YU0rmauLWfvqOuk77SlNJXj2rM6oT/dBD87+A==
 
+countup.js@^2.2.0:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.3.2.tgz#9a91d95780be1c908d1e6feb548625f353f57988"
+  integrity sha512-dQ7F/CmKGjaO6cDfhtEXwsKVlXIpJ89dFs8PvkaZH9jBVJ2Z8GU4iwG/qP7MgY8qwr+1skbwR6qecWWQLUzB8Q==
+
 cross-spawn@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -2106,6 +2111,13 @@ react-async-script@^1.1.1:
     hoist-non-react-statics "^3.3.0"
     prop-types "^15.5.0"
 
+react-countup@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-6.3.1.tgz#ae4e8d33a7ed86c2cfc27e20b1fe76704f61d9fb"
+  integrity sha512-+Bf1caAZHtmVQ5Jmhe2MZuN1cw1CEP5OdeMph9CBwM5K8DEDGmg00AzcN6fO9XolUhqUfiR0pOEiSyngSrHwig==
+  dependencies:
+    countup.js "^2.2.0"
+
 react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
@@ -2136,6 +2148,11 @@ react-icons@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.4.0.tgz#a13a8a20c254854e1ec9aecef28a95cdf24ef703"
   integrity sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==
+
+react-intersection-observer@^9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.4.0.tgz#f6b6e616e625f9bf255857c5cba9dbf7b1825ec7"
+  integrity sha512-v0403CmomOVlzhqFXlzOxg0ziLcVq8mfbP0AwAcEQWgZmR2OulOT79Ikznw4UlB3N+jlUYqLMe4SDHUOyp0t2A==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
