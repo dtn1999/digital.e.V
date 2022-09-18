@@ -1,6 +1,5 @@
 import React from "react";
 import cn from "classnames";
-import { BaseProps } from "@app/types";
 
 function parseHeadlineWord(word: string, index: number) {
   const wordsComponents = word.split(" ").map((item, indexWord) => {
@@ -36,13 +35,7 @@ function parseHeadline(headline: string) {
   return words.map(parseHeadlineWord);
 }
 
-interface Props extends BaseProps {
-  value: string;
-  underline?: boolean;
-  underlineAlign?: "left" | "center" | "right";
-}
-
-const Headline: React.FC<Props> = React.memo(
+const Headline: React.FC<any> = React.memo(
   ({ value, underline, underlineAlign, className }) => {
     return (
       <h1
