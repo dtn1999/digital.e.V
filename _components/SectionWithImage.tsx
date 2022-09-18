@@ -20,12 +20,13 @@ const SectionWithImage: React.FC<BaseStoryBlockProps> = React.memo(
               <Image src={imageUrl} alt="" layout="fill" objectFit="cover" />
             </div>
           </div>
-          <div className="w-full h-full px-5 py-7 bg-[#F0F0F0]">
+          <div className="w-full h-full px-5 py-7 bg-[#F0F0F0] grid-flow-row">
             {blok.blocks.map((blok: any) => (
               <div key={blok._uid} className="flex-auto px-6">
                 <StoryblokComponent blok={blok} />
               </div>
             ))}
+            <button className="uppercase text-secondary mx-6 my-5">learn more</button>
           </div>
         </div>
       </Container>
