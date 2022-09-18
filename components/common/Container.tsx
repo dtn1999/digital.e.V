@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { BaseProps } from "@app/types";
+import { BaseProps } from "../../types/global";
 
 const Container: React.FC<Omit<BaseProps, "className">> = React.memo(
   ({ children }) => {
