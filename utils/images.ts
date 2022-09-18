@@ -1,4 +1,3 @@
-import { TAsset } from "@app/types";
 import { PEXELS_TOKEN } from "./envVariables";
 import { createClient , ErrorResponse, Photo, PhotosWithTotalResults} from 'pexels';
 const client = createClient(PEXELS_TOKEN);
@@ -17,7 +16,7 @@ export async function getBase64EncodingFromUri(uri:string){
 }
 
 
-export async function getRandomPexelsImage(size?:PexelsImageSize, query?:string):Promise<TAsset>{
+export async function getRandomPexelsImage(size?:PexelsImageSize, query?:string):Promise<any>{
   
   let result:any; 
   let error:string;
