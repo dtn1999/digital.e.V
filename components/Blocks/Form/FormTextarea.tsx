@@ -1,16 +1,8 @@
 import React from "react";
 import cn from "classnames";
 import { useFormContext } from "react-hook-form";
-import { BaseProps } from "@app/types";
-import { FormTextareaFragment } from "@app/types/graphql";
 
-interface Props
-  extends BaseProps,
-    Omit<Required<FormTextareaFragment>, "__typename" | "id" | "label"> {
-  error?: any;
-}
-
-const FormTextarea: React.FC<Props> = React.memo(({ ...props }) => {
+const FormTextarea: React.FC<any> = React.memo(({ ...props }) => {
   const { label, placeholder, name, required } = props as any;
   const { register } = useFormContext();
   return (
