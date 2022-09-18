@@ -11,6 +11,7 @@ const nextConfig = {
       "www.pexels.com",
       "i.imgur.com",
       "digitalebildungfueralle.org",
+      "promo-theme.com",
       "a.storyblok.com",
     ],
   },

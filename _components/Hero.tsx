@@ -11,7 +11,7 @@ const HeroSection: React.FC<Props> = React.memo(({ blok }) => {
   const heroTitle = blok.title;
   return (
     <div
-      className={cn("relative w-hull h-[70%] bg-sky-800")}
+      className={cn("relative w-hull h-[100%] bg-sky-800")}
       {...storyblokEditable(blok)}
     >
       <ReactPlayer
@@ -36,7 +36,7 @@ const HeroSection: React.FC<Props> = React.memo(({ blok }) => {
       />
       <div className="bg-black/60 absolute items-center top-0 left-0 w-full h-full z-10 flex">
         <div className="relative w-full max-w-7xl mx-auto">
-          <h1 className="text-white text-[62px] max-w-[640px] font-bold mb-10">
+          <h1 className="text-white text-[62px] max-w-[740px] font-bold mb-10">
             {heroTitle}
           </h1>
           <button className="flex items-center text-white bg-primary px-10 py-5 text-lg font-normal rounded-[200px] group transition-all duration-700">
