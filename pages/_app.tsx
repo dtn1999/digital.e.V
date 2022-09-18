@@ -9,6 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import NextSplashScreen from "../components/pages/LoadingScreen";
 import LoadingScreen from "../components/pages/LoadingScreen/LoadingScreen";
 import PageWrapperComponent from "../components/pages/Page";
+import VideoHero from "../components/sections/Hero/VideoHero";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -18,6 +19,7 @@ const variants = {
 
 const components = {
   page: PageWrapperComponent,
+  VideoHeroComponent: VideoHero,
 };
 
 storyblokInit({
