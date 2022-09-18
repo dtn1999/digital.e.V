@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
 
 import Image from "next/image";
-import NavigationControls from "../../../components/sections/Carousel/NavigationControls";
-import { usePagination } from "@app/hooks/usePagination";
+import { usePagination } from "../../hooks/usePagination";
+import NavigationControls from "./Hero/Carousel/NavigationControls";
 
 interface Props {
   testimonials: any[];
