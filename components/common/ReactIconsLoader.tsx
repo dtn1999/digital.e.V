@@ -1,7 +1,5 @@
 import React from "react";
-import cn from "classnames";
-import dynamic from "next/dynamic";
-import { IconBaseProps, IconContext } from "react-icons";
+import { IconBaseProps } from "react-icons";
 import SpinnerComponent from "./Spinner";
 import loadable from "@loadable/component";
 
