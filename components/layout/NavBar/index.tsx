@@ -60,7 +60,7 @@ const NavBar = React.forwardRef<HTMLHeadElement, Props>(
                   src="/images/logo.png"
                   width={250}
                   height={80}
-                  alt="logo VKII"
+                  alt="logo DIGITAL e.V"
                 />
               </Link>
             </div>
