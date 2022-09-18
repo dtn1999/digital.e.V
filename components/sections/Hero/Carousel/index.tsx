@@ -1,25 +1,15 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-import { PaginationOptions } from "swiper/types";
-import NavigationControls from "./NavigationControls";
 
-import SocialsHandles from "../../../features/Socials";
-import { SocialHandle, TCarouselSlide } from "@app/types";
 import CarouselSlide from "./CarouselSlide";
-import { usePagination } from "@app/hooks/usePagination";
-import { CarouselFragment, CarouselSlideFragment } from "@app/types/graphql";
+import { usePagination } from "../../../../hooks/usePagination";
+import SocialsHandles from "../../../Blocks/SocialsHandles";
 
-interface Props {
-  slides: CarouselSlideFragment[];
-  socials?: SocialHandle[];
-}
-
-// animation framer
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-const Carousel: React.FC<Props> = React.memo(
+const Carousel: React.FC<any> = React.memo(
   ({ slides = [], socials = [] }) => {
     // get the swiper instance
     const swiperRef = React.useRef<any>();
@@ -39,7 +29,7 @@ const Carousel: React.FC<Props> = React.memo(
           }}
           className="relative h-full w-full"
         >
-          {slides.map((item) => (
+          {slides.map((item:any) => (
             <SwiperSlide key={item.id} className="relative h-full w-full">
               <CarouselSlide
                 id={item.id}
@@ -52,7 +42,6 @@ const Carousel: React.FC<Props> = React.memo(
               <div className="absolute inset-y-0 left-0 z-[100] w-17">
                 <div className="hidden h-full w-full items-center md:flex">
                   <SocialsHandles
-                    //@ts-ignore
                     socials={socials}
                     orientation="vertical"
                   />
