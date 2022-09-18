@@ -6,7 +6,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import Image from "next/image";
 import NavigationControls from "./NavigationControls";
 import { usePagination } from "../../_hooks/usePagination";
-import StoryblokEditableWrapper from "../StoryblokEditableWrapper";
+import StoryblokEditableWrapper from "../../components/StoryblokEditableWrapper";
 import { dummyTestimonials } from "./dummy";
 
 interface Props {

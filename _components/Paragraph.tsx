@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import StoryblokEditableWrapper from "./StoryblokEditableWrapper";
+import StoryblokEditableWrapper from "../components/StoryblokEditableWrapper";
 import { BaseStoryBlockProps } from "../types/global";
 
 const Paragraph: React.FC<BaseStoryBlockProps> = React.memo(({ blok }) => {
