@@ -7,18 +7,19 @@ import Layout from "../components/layout";
 
 interface Props {}
 
-const Page: NextPage<PageProps> = React.memo(({ layout }) => {
-  console.log(layout);
-  const { navBar, footer, socialHandles } = layout;
+const Page: NextPage<PageProps & { story: string }> = React.memo(
+  ({ layout, story }) => {
+    const { navBar, footer, socialHandles } = layout;
 
-  return (
-    <Layout
-      navBar={navBar}
-      footer={footer}
-      socialHandles={socialHandles}
-    ></Layout>
-  );
-});
+    return (
+      <Layout
+        navBar={navBar}
+        footer={footer}
+        socialHandles={socialHandles}
+      ></Layout>
+    );
+  }
+);
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as any;
@@ -27,9 +28,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     by_slugs: `pages/${pageSlug}`,
     version: "draft",
   });
-  console.log("slug", data);
+  console.log("slug", data.stories[0]);
   return {
-    props: {},
+    props: {
+      story: data ? data.stories[0] : false,
+      key: data ? data.stories[0].id : false,
+    },
   };
 };
 
