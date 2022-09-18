@@ -17,7 +17,7 @@ module.exports = {
           light: "#33975D38",
           dark: "rgb(51, 111, 93)",
         },
-        secondary: "#e13839",
+        secondary: "#f0f0f0",
         black: "#161616",
       },
       borderColor: {
