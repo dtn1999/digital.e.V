@@ -2,7 +2,7 @@ import React from "react";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 
 const PageWrapperComponent = ({ blok }: any) => (
-  <div {...storyblokEditable(blok)}>
+  <div className="relative" {...storyblokEditable(blok)}>
     {blok.body
       ? blok.body.map((blok: any) => (
           <StoryblokComponent blok={blok} key={blok._uid} />
@@ -10,6 +10,5 @@ const PageWrapperComponent = ({ blok }: any) => (
       : null}
   </div>
 );
-
 
 export default PageWrapperComponent;
