@@ -1,5 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import VideoHero from "./VideoHero";
 
 // some dynamic imports
 const Carousel = dynamic(() => import("./Carousel"));
@@ -9,8 +10,9 @@ const Banner = dynamic(() => import("./Banner"));
 
 const HeroManager: React.FC<any> = React.memo(({ blok }) => {
   const {
-    heroComponent: [{ component, ...data }],
+    heroComponent: [componentBlock],
   } = blok;
+  const { component, ...data } = componentBlock;
   console.log("blok", blok);
   const heroComponent = React.useMemo(() => {
     switch (component) {
@@ -19,7 +21,7 @@ const HeroManager: React.FC<any> = React.memo(({ blok }) => {
       case "Banner":
         return <Banner key={data.id} {...(data as any)} />;
       case "VideoHero":
-        return <div>VideoHero</div>;
+        return <VideoHero blok={componentBlock} />;
       default:
         return (
           <React.Fragment>
@@ -27,7 +29,7 @@ const HeroManager: React.FC<any> = React.memo(({ blok }) => {
           </React.Fragment>
         );
     }
-  }, [component, data]);
+  }, [component, data, componentBlock]);
   return <div className="h-full w-full bg-sky-500">{heroComponent}</div>;
 });
 export default HeroManager;
