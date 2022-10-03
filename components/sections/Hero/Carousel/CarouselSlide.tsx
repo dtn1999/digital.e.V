@@ -68,8 +68,8 @@ const CarouselSlide: React.FC<any> = React.memo(
         </div>
         <div className="absolute h-full w-full">
           <Image
-            src={image.url}
-            alt={image.alt || image.url}
+            src={image.filename}
+            alt={image.name || image.filename}
             objectPosition="center"
             objectFit="cover"
             layout="fill"
