@@ -36,7 +36,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
             exit="hidden"
             className="absolute z-50 mx-auto w-full text-white sm:max-w-sm md:max-w-md  md:px-[247px] lg:max-w-lg xl:max-w-xl"
           >
-            <div className="">
+            <div className="bg-green-300">
               <motion.div variants={fadeInOut} className="md:my-5 lg:max-w-4xl">
                 <Headline value={title} />
               </motion.div>
@@ -60,7 +60,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
                   variant="solid"
                 >
                   <span className="text-white">{cta.link?.label}</span>
-                  <BsChevronRight className="text-primary" />
+                  <BsChevronRight className="text-white" />
                 </Button>
               </motion.div>
             </div>
