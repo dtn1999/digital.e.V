@@ -1,7 +1,5 @@
 import React from "react";
-import { storyblokEditable } from "@storyblok/react";
 import { BsArrowRight } from "react-icons/bs";
-import cn from "classnames";
 import ReactPlayer from "react-player";
 import StoryblokEditable from "../../StoryblokEditable";
 
