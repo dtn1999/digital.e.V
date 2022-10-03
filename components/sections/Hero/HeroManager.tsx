@@ -30,6 +30,6 @@ const HeroManager: React.FC<any> = React.memo(({ blok }) => {
         );
     }
   }, [component, data, componentBlock]);
-  return <div className="h-full w-full bg-sky-500">{heroComponent}</div>;
+  return <div className="h-full w-full">{heroComponent}</div>;
 });
 export default HeroManager;
