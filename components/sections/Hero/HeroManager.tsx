@@ -7,9 +7,11 @@ const Banner = dynamic(() => import("./Banner"));
 
 // internal component types
 
-const HeroManager: React.FC<any> = React.memo(({ typename, data }) => {
+const HeroManager: React.FC<any> = React.memo(({ blok }) => {
+  const { component, data } = blok;
+  console.log("blok", blok);
   const heroComponent = React.useMemo(() => {
-    switch (typename) {
+    switch (component) {
       case "Carousel":
         return <Carousel key={data.id} slides={(data as any).slides} />;
       case "Banner":
@@ -21,7 +23,7 @@ const HeroManager: React.FC<any> = React.memo(({ typename, data }) => {
           </React.Fragment>
         );
     }
-  }, [typename, data]);
+  }, [component, data]);
   return <div className="h-full w-full bg-sky-500">{heroComponent}</div>;
 });
 export default HeroManager;

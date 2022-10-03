@@ -1,8 +1,8 @@
 import React from "react";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 
-const PageWrapperComponent = ({ blok }: any) => (
-  <div className="relative" {...storyblokEditable(blok)}>
+const PageComponent = ({ blok }: any) => (
+  <div className="relative w-full h-full" {...storyblokEditable(blok)}>
     {blok.body
       ? blok.body.map((blok: any) => (
           <StoryblokComponent blok={blok} key={blok._uid} />
@@ -11,4 +11,4 @@ const PageWrapperComponent = ({ blok }: any) => (
   </div>
 );
 
-export default PageWrapperComponent;
+export default PageComponent;
