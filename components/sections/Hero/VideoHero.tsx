@@ -3,6 +3,7 @@ import { storyblokEditable } from "@storyblok/react";
 import { BsArrowRight } from "react-icons/bs";
 import cn from "classnames";
 import ReactPlayer from "react-player";
+import StoryblokEditable from "../../StoryblokEditable";
 
 interface Props {
   blok: any;
@@ -13,11 +14,7 @@ const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
   const heroTitle = blok.title;
   console.log("videoUrl", blok);
   return (
-    <div
-      className={cn("relative w-hull h-full bg-sky-800")}
-      {...storyblokEditable(blok)}
-    >
-      
+    <StoryblokEditable blok={blok}>
       <ReactPlayer
         style={{
           position: "absolute",
@@ -55,7 +52,7 @@ const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
           </button>
         </div>
       </div>
-    ></div>
+    </StoryblokEditable>
   );
 });
 export default VideoHero;
