@@ -11,9 +11,10 @@ interface Props {
 const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
   const videoUrl = blok.video.filename;
   const heroTitle = blok.title;
+  console.log("videoUrl", blok);
   return (
     <div
-      className={cn("relative w-hull h-[100%] bg-sky-800")}
+      className={cn("relative w-hull h-full bg-sky-800")}
       {...storyblokEditable(blok)}
     >
       <ReactPlayer
@@ -36,7 +37,7 @@ const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
         muted
         playing
       />
-      <div className="bg-black/60 absolute items-center top-0 left-0 w-full h-full z-10 flex">
+      <div className="bg-black/60 items-center top-0 left-0 w-full h-full z-10 flex">
         <div className="relative w-full max-w-7xl mx-auto">
           <h1 className="text-white text-[62px] max-w-[740px] font-bold mb-10">
             {heroTitle}
