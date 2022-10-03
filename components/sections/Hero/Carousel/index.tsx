@@ -21,7 +21,7 @@ const Carousel: React.FC<Props> = React.memo(({ blok }) => {
   const pagination = usePagination("paginationCarousel");
 
   return (
-    <div className="relative h-full  w-full">
+    <div className="relative h-full  w-full bg-primary">
       <Swiper
         //@ts-ignore
         ref={swiperRef}
@@ -35,11 +35,6 @@ const Carousel: React.FC<Props> = React.memo(({ blok }) => {
         {slides.map((item: any) => (
           <SwiperSlide key={item.id} className="relative h-full w-full">
             <CarouselSlide key={item.id} blok={item} />
-            <div className="absolute inset-y-0 left-0 z-[100] w-17">
-              <div className="hidden h-full w-full items-center md:flex">
-                <SocialsHandles socials={socials} orientation="vertical" />
-              </div>
-            </div>
           </SwiperSlide>
         ))}
       </Swiper>
