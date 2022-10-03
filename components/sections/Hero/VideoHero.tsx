@@ -17,6 +17,7 @@ const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
       className={cn("relative w-hull h-full bg-sky-800")}
       {...storyblokEditable(blok)}
     >
+      
       <ReactPlayer
         style={{
           position: "absolute",
@@ -54,7 +55,7 @@ const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
           </button>
         </div>
       </div>
-    </div>
+    ></div>
   );
 });
 export default VideoHero;
