@@ -19,7 +19,7 @@ const HeroManager: React.FC<any> = React.memo(({ blok }) => {
       case "Carousel":
         return <Carousel key={data.id} slides={(data as any).slides} />;
       case "Banner":
-        return <Banner key={data.id} {...(data as any)} />;
+        return <Banner key={data.id} blok={componentBlock} />;
       case "VideoHero":
         return <VideoHero blok={componentBlock} />;
       default:

@@ -4,12 +4,16 @@ import Image from "next/image";
 import Headline from "../../Blocks/Headline";
 import Paragraph from "../../Blocks/Paragraph";
 
-const Banner: React.FC<any> = React.memo(({ image, title, description }) => {
+interface Props {
+  blok: any;
+}
+const Banner: React.FC<Props> = React.memo(({ blok }) => {
+  const { headline, description, image } = blok;
   return (
     <div className={cn("w-full relative h-1/2")}>
       <Image
         src={image.url}
-        alt={`${title}: ${description}`}
+        alt={`${headline}: ${description}`}
         layout="fill"
         objectFit="cover"
         objectPosition="70% 70%"
@@ -22,9 +26,9 @@ const Banner: React.FC<any> = React.memo(({ image, title, description }) => {
               underline
               underlineAlign="right"
               underlineColor="primary"
-              value={title.text}
+              value={headline}
             />
-            <Paragraph value={description.content} />
+            <Paragraph value={description} />
           </div>
         </div>
       </div>
