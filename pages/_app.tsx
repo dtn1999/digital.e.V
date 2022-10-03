@@ -11,6 +11,7 @@ import LoadingScreen from "../components/pages/LoadingScreen/LoadingScreen";
 import Page from "../components/pages/Page";
 import VideoHero from "../components/sections/Hero/VideoHero";
 import HeroManager from "../components/sections/Hero/HeroManager";
+import CarouselSlide from "../components/sections/Hero/Carousel/CarouselSlide";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -22,6 +23,7 @@ const components = {
   Page,
   VideoHero,
   HeroManager,
+  CarouselSlide,
 };
 
 storyblokInit({
