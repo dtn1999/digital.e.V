@@ -5,6 +5,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import CarouselSlide from "./CarouselSlide";
 import { usePagination } from "../../../../hooks/usePagination";
 import SocialsHandles from "../../../Blocks/SocialsHandles";
+import StoryblokEditable from "../../../StoryblokEditable";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -21,7 +22,7 @@ const Carousel: React.FC<Props> = React.memo(({ blok }) => {
   const pagination = usePagination("paginationCarousel");
 
   return (
-    <div className="relative h-full  w-full bg-primary">
+    <StoryblokEditable blok={blok}>
       <Swiper
         //@ts-ignore
         ref={swiperRef}
@@ -30,15 +31,18 @@ const Carousel: React.FC<Props> = React.memo(({ blok }) => {
           delay: 8000,
           disableOnInteraction: true,
         }}
-        className="relative h-full w-full"
+        className="relative h-full w-full bg-primary"
       >
         {slides.map((item: any) => (
-          <SwiperSlide key={item.id} className="relative h-full w-full">
+          <SwiperSlide
+            key={item.id}
+            className="relative h-full w-full bg-primary"
+          >
             <CarouselSlide key={item.id} blok={item} />
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </StoryblokEditable>
   );
 });
 
