@@ -12,7 +12,7 @@ const Banner: React.FC<Props> = React.memo(({ blok }) => {
   return (
     <div className={cn("w-full relative h-1/2")}>
       <Image
-        src={image.url}
+        src={image.filename}
         alt={`${headline}: ${description}`}
         layout="fill"
         objectFit="cover"
@@ -21,14 +21,12 @@ const Banner: React.FC<Props> = React.memo(({ blok }) => {
       <div className="absolute inset-0 flex items-center bg-black/70">
         <div className="flex h-full w-full items-center">
           <div className="relative mx-auto flex h-full w-full flex-col items-end justify-center px-2 sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
-            <Headline
-              className="text-white"
-              underline
-              underlineAlign="right"
-              underlineColor="primary"
-              value={headline}
-            />
-            <Paragraph value={description} />
+            <h2 className="text-white text-3xl max-w-4xl text-right font-bold mb-5">
+              {headline}
+            </h2>
+            <p className="my-4 max-w-lg pl-[300px] text-right text-white">
+              {description}
+            </p>
           </div>
         </div>
       </div>
