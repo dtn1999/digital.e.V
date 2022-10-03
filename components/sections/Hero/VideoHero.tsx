@@ -11,7 +11,7 @@ interface Props {
 
 const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
   const videoUrl = blok.video.filename;
-  const heroTitle = blok.title;
+  const { title: heroTitle, buttonLabel, buttonLink } = blok;
   console.log("videoUrl", blok);
   return (
     <StoryblokEditable blok={blok}>
@@ -47,7 +47,7 @@ const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
               <BsArrowRight className="text-4xl group-hover:translate-x-5 transition-all duration-700" />
             </span>
             <span className="first-letter:uppercase mx-5 group-hover:translate-x-2 transition-all duration-700">
-              Learn more
+              {buttonLabel}
             </span>
           </button>
         </div>
