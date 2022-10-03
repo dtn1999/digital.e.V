@@ -17,7 +17,7 @@ const HeroManager: React.FC<any> = React.memo(({ blok }) => {
   const heroComponent = React.useMemo(() => {
     switch (component) {
       case "Carousel":
-        return <Carousel key={data.id} slides={(data as any).slides} />;
+        return <Carousel key={data.id} blok={componentBlock} />;
       case "Banner":
         return <Banner key={data.id} blok={componentBlock} />;
       case "VideoHero":
