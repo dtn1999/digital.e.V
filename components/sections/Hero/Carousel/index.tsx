@@ -34,12 +34,14 @@ const Carousel: React.FC<Props> = React.memo(({ blok }) => {
         className="relative h-full w-full bg-primary"
       >
         {slides.map((item: any) => (
-          <SwiperSlide
-            key={item.id}
-            className="relative h-full w-full bg-primary"
-          >
-            <CarouselSlide key={item.id} blok={item} />
-          </SwiperSlide>
+          <StoryblokEditable key={item.id} blok={blok}>
+            <SwiperSlide
+              key={item.id}
+              className="relative h-screen w-full bg-primary"
+            >
+              <CarouselSlide key={item.id} blok={item} />
+            </SwiperSlide>
+          </StoryblokEditable>
         ))}
       </Swiper>
     </StoryblokEditable>

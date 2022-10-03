@@ -9,12 +9,13 @@ import NavigationControls from "./NavigationControls";
 import { container, fadeInOut } from "../../../../animations";
 import Headline from "../../../Blocks/Headline";
 import Button from "../../../common/Button";
+import StoryblokEditable from "../../../StoryblokEditable";
 
 interface Props {
   blok: any;
 }
 const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
-  const { image, description, cta, id, title } = blok;
+  const { image, description, cta:[cta], id, title } = blok;
   const { isActive } = useSwiperSlide();
   const router = useRouter();
   const handleClick = React.useCallback(
@@ -25,7 +26,10 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
   );
 
   return (
-    <div className="relative grid h-full w-full grid-cols-1 px-5  md:px-20">
+    <StoryblokEditable
+      blok={blok}
+      className="relative grid h-[88%] w-full grid-cols-1 px-5  md:px-20"
+    >
       <div className="flex h-full w-full flex-col justify-start pt-5 md:pt-32">
         {isActive && (
           <motion.div
@@ -36,7 +40,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
             exit="hidden"
             className="absolute z-50 mx-auto w-full text-white sm:max-w-sm md:max-w-md  md:px-[247px] lg:max-w-lg xl:max-w-xl"
           >
-            <div className="bg-green-300">
+            <div className="">
               <motion.div variants={fadeInOut} className="md:my-5 lg:max-w-4xl">
                 <Headline value={title} />
               </motion.div>
@@ -59,7 +63,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
                   className="space-x-1 bg-primary text-xs font-medium text-white"
                   variant="solid"
                 >
-                  <span className="text-white">{cta.link?.label}</span>
+                  <span className="text-white">{cta.label}</span>
                   <BsChevronRight className="text-white" />
                 </Button>
               </motion.div>
@@ -78,7 +82,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
         <div className={cn("absolute inset-0 z-20 bg-black/70")} />
         <NavigationControls />
       </div>
-    </div>
+    </StoryblokEditable>
   );
 });
 export default CarouselSlide;
