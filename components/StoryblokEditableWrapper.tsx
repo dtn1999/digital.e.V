@@ -7,7 +7,7 @@ interface Props extends BaseProps {
   blok: any;
 }
 
-const StoryblokEditableWrapper: React.FC<Props> = React.memo(
+const StoryblokEditable: React.FC<Props> = React.memo(
   ({ className, children, blok }) => {
     return (
       <div
@@ -19,4 +19,4 @@ const StoryblokEditableWrapper: React.FC<Props> = React.memo(
     );
   }
 );
-export default StoryblokEditableWrapper;
+export default StoryblokEditable;
