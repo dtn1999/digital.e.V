@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 import { AnimatePresence, motion } from "framer-motion";
 import NextSplashScreen from "../components/pages/LoadingScreen";
 import LoadingScreen from "../components/pages/LoadingScreen/LoadingScreen";
-import PageWrapperComponent from "../components/pages/Page";
+import Page from "../components/pages/Page";
 import VideoHero from "../components/sections/Hero/VideoHero";
 import HeroManager from "../components/sections/Hero/HeroManager";
 
@@ -19,9 +19,9 @@ const variants = {
 };
 
 const components = {
-  page: PageWrapperComponent,
-  VideoHeroComponent: VideoHero,
-  HeroManager: HeroManager
+  Page,
+  VideoHero,
+  HeroManager,
 };
 
 storyblokInit({

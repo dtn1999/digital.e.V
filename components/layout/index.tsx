@@ -29,7 +29,7 @@ const Layout: React.FC<Props> = React.memo(
             ctas={navBar.ctas}
             headerHeight={height}
           />
-          <main style={{}} className="h-full w-full bg-red-100">
+          <main style={{}} className="relative h-full w-full">
             {children}
             {socialHandles.length > 0 && (
               <div className="w-full bg-[#E8E8E8]">
