@@ -17,7 +17,7 @@ const Page: NextPage<PageProps & { story: any }> = React.memo(
     const storyParams = useStoryblokState(story);
     return (
       <Layout navBar={navBar} footer={footer} socialHandles={socialHandles}>
-        <div className="mt-20 relative">
+        <div className="relative w-full h-full">
           <StoryblokComponent blok={story.content} />
         </div>
       </Layout>

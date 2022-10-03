@@ -15,6 +15,7 @@ interface Props extends BaseProps {
   socialHandles: any[];
 }
 
+
 const Layout: React.FC<Props> = React.memo(
   ({ children, navBar, socialHandles, seo }) => {
     const [ref, { height }] = useMeasure<any>();
