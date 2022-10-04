@@ -5,12 +5,30 @@ import Link from "next/link";
 import DynamicForm from "../Blocks/Form";
 import FormInput from "../Blocks/Form/FormInput";
 import FormTextarea from "../Blocks/Form/FormTextarea";
+import ReCAPTCHA from "react-google-recaptcha";
+import emailjs from "@emailjs/browser";
+
 interface Props {
   isOpen: boolean;
   closeModal: () => void;
 }
 
 const ContactDialog: React.FC<Props> = React.memo(({ isOpen, closeModal }) => {
+  const recaptchaRef = React.useRef<ReCAPTCHA>(null);
+  const form = React.useRef();
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
+    emailjs.sendForm("service_ID", "template_ID", "", "").then(
+      (result: any) => {
+        console.log(result.text);
+      },
+      (error: any) => {
+        console.log(error.text);
+      }
+    );
+  };
   return (
     <Transition appear show={isOpen} as={React.Fragment}>
       <Dialog as="div" className="relative z-[999]" onClose={closeModal}>
@@ -48,35 +66,44 @@ const ContactDialog: React.FC<Props> = React.memo(({ isOpen, closeModal }) => {
                     });
                   }}
                 >
-                  <div className="flex mt-4 w-full">
+                  <div className="flex mt-4 w-full md:flex-row flex-col">
                     <FormInput
-                      label={""}
+                      label={"Vorname"}
                       placeholder={""}
-                      name={""}
-                      required={false}
+                      name={"firstname"}
+                      required
+                      type="text"
                     />
                     <FormInput
-                      label={""}
+                      label={"Nachname"}
                       placeholder={""}
-                      name={""}
-                      required={false}
-                    />
-                  </div>
-                  <div className="flex mt-4 w-full">
-                    <FormInput
-                      label={""}
-                      placeholder={""}
-                      name={""}
-                      required={false}
-                    />
-                    <FormInput
-                      label={""}
-                      placeholder={""}
-                      name={""}
-                      required={false}
+                      name={"lastname"}
+                      required
+                      type="text"
                     />
                   </div>
-                  <FormTextarea name={""} />
+                  <div className="flex mt-4 w-full md:flex-row flex-col">
+                    <FormInput
+                      label={"Email"}
+                      placeholder={""}
+                      name={"email"}
+                      required
+                      type="email"
+                    />
+                    <FormInput
+                      label={"Telefon/Mobil"}
+                      placeholder={""}
+                      name={"phone"}
+                      required={false}
+                      type="phone"
+                    />
+                  </div>
+                  <FormTextarea name={"message"} label="Ihr Nachricht an uns" />
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={"this is a wrong site key"}
+                    className="mb-4"
+                  />
                   <p className="mx-2 mt-4">
                     Sie erklären sich damit einverstanden, dass Ihre Daten zur
                     Bearbeitung Ihres Anliegens verarbeitet werden. Weitere
@@ -92,7 +119,7 @@ const ContactDialog: React.FC<Props> = React.memo(({ isOpen, closeModal }) => {
                       type="button"
                       className="flex items-center text-white bg-primary px-10 py-5 text-lg font-normal rounded-[200px] group transition-all duration-700 my-5"
                     >
-                      <span className="first-letter:uppercase mx-5 group-hover:translate-x-2 transition-all duration-700">
+                      <span className="first-letter:uppercase mx-5 transition-all duration-700">
                         Absenden
                       </span>
                     </button>

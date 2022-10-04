@@ -15,13 +15,13 @@ const FormTextarea: React.FC<Props> = React.memo(({ ...props }) => {
   const { label, placeholder, name, required } = props;
   const { register } = useFormContext();
   return (
-    <div className="mx-2">
+    <div className="mx-2 mt-4 ">
       <p>{label}</p>
       <textarea
         {...register(name, { required })}
         placeholder={placeholder}
         rows={5}
-        className="w-full bg-[rgba(0,0,0,0.04)]"
+        className="w-full bg-[rgba(0,0,0,0.04)] focus:outline-1 outline-primary"
       />
     </div>
   );

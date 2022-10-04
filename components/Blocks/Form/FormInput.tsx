@@ -22,7 +22,7 @@ const FormInput: React.FC<Props> = React.memo(({ className, ...props }) => {
         {...register(name, { required: required ? true : false })}
         placeholder={placeholder}
         type={type}
-        className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm"
+        className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm focus:outline-1 outline-primary"
       />
     </div>
   );
