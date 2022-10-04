@@ -27,6 +27,7 @@ import ProjectSection from "../components/sections/ProjectSection";
 import ServiceSection from "../components/sections/ServiceSection";
 import TeamSection from "../components/sections/TeamSection";
 import TestimonialSection from "../components/sections/TestimonialSection";
+import Paragraph from "../components/Blocks/Paragraph";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -48,6 +49,7 @@ const components = {
   TestimonialSection,
   CollaboratorSection,
   ProjectSection,
+  Paragraph,
 };
 
 storyblokInit({
