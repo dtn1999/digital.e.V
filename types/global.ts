@@ -11,7 +11,12 @@ export interface PageProps{
     },
 }
 
+
 export interface BaseProps {
     children?: React.ReactNode;
     className?: string;
+}
+
+export interface BaseBlokProps extends BaseProps{
+    blok: any
 }
