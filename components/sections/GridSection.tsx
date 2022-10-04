@@ -10,8 +10,8 @@ const GridSection: React.FC<Props> = React.memo(({}) => {
       <Container>
         <div className="flex flex-col items-center">
           <Headline value="Latest News & Events" />
-          <div className="grid grid-cols-1 md:grid-cols-3 my-5">
-            <div className="flex flex-col relative w-[380px] h-[600px] group">
+          <div className="grid grid-cols-1 md:grid-cols-3 my-5 px-4">
+            <div className="flex flex-col relative w-[300px] md:w-[380px] h-[400px] md:h-[600px] group">
               <Image src="/images/image.jpeg" alt="image" layout="fill" />
               <div className="hidden bg-primary/80 text-white px-4 pt-4 pb-10 absolute inset-0 bottom-0 group-hover:flex items-center cursor-pointer transition-all duration-700">
                 <div>

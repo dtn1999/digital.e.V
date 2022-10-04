@@ -41,9 +41,9 @@ const Layout: React.FC<Props> = React.memo(
             )}
             <Footer />
           </main>
-          <div className="fixed -right-5 top-48 z-[100] flex items-center">
+          {/* <div className="fixed -right-5 top-48 z-[100] flex items-center">
             <LanguageSwitch />
-          </div>
+          </div> */}
         </div>
       </React.Fragment>
     );
