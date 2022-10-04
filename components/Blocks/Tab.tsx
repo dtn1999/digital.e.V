@@ -33,7 +33,7 @@ const Tab: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
                   "py-1 font-bold uppercase border-b border-transparent  focus:outline-none text-sm md:text-base":
                     true,
                   "text-tertiary": !selected,
-                  "border-tertiary text-primary": selected,
+                  "border-secondary text-primary": selected,
                 })
               }
             >
@@ -45,7 +45,7 @@ const Tab: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
           {tabs.map((tab: any) => (
             <HeadLessUiTab.Panel
               key={tab.title}
-              className="mt-4 font-light leading-8 first-letter:uppercase"
+              className="mt-4 font-light leading-8 first-letter:uppercase text-justify p  r-5"
             >
               <Paragraph blok={tab.content} />
             </HeadLessUiTab.Panel>
