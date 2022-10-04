@@ -10,9 +10,15 @@ import { toast } from "react-toastify";
 import { useDynamicForm } from "../../../hooks/useDynamicForm";
 import { handleRecaptchaValidation } from "../../../lib/handleRecaptchaValidation";
 import Button from "../../common/Button";
+import { BaseProps } from "../../../types/global";
 
-const DynamicForm: React.FC<any> = React.memo(
-  ({ fields, submitButtonLabel, onSubmit }) => {
+interface Props extends BaseProps {
+  onSubmit: (data: any) => Promise<boolean>;
+}
+
+
+const DynamicForm: React.FC<Props> = React.memo(
+  ({ children , onSubmit}) => {
     const methods = useForm<any>();
     const {
       handleSubmit,
@@ -20,7 +26,6 @@ const DynamicForm: React.FC<any> = React.memo(
       formState: { errors, isSubmitting },
     } = methods;
 
-    const { formFieldsComponent } = useDynamicForm({ fields, errors });
     const recaptchaRef = React.useRef<ReCAPTCHA>(null);
 
     const handleOnSubmit: SubmitHandler<any> = React.useCallback(
@@ -50,11 +55,7 @@ const DynamicForm: React.FC<any> = React.memo(
     return (
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(handleOnSubmit)}>
-          {formFieldsComponent}
-          <ReCAPTCHA ref={recaptchaRef} sitekey={""} className="mb-4" />
-          <Button disabled={isSubmitting} type="submit">
-            {submitButtonLabel}
-          </Button>
+          {children}
         </form>
       </FormProvider>
     );
