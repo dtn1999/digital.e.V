@@ -29,6 +29,9 @@ const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
   );
   return (
     <Container className="mt-6 mb-16">
+      <blockquote className="">
+        Das wissen sollte jede Zeit, überall, für jede(n) zugänglich sein
+      </blockquote>
       <section
         className={cn("relative grid w-full md:grid-cols-2 overflow-hidden", {
           "bg-secondary": backgroundColor === "SECONDARY",
@@ -67,7 +70,7 @@ const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
             "flex flex-col justify-start w-full py-20 px-10 md:px-15": true,
           })}
         >
-          {headline && <Headline value={headline} underline />}
+          {headline && <Headline value={headline} underline className="mb-5" />}
           <BlockManager blocks={blocks} />
           {cta && (
             <div className="mt-9 flex justify-start">
