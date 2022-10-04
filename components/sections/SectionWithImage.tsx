@@ -7,71 +7,79 @@ import { useRouter } from "next/router";
 import Headline from "../Blocks/Headline";
 import { slideLeftRight } from "../../animations";
 import BlockManager from "../Blocks/BlockManager";
+import { BaseBlokProps } from "../../types/global";
 
-const SectionWithImg: React.FC<any> = React.memo(
-  ({ image, imagePosition, backgroundColor, headline, cta, blocks = [] }) => {
-    const router = useRouter();
-    const navigate = React.useCallback(
-      (to: string) => {
-        router.push(`/${to.replace(/^\//, "")}`);
-      },
-      [router]
-    );
-    return (
-      <section
-        className={cn("relative grid w-full md:grid-cols-2 overflow-hidden", {
-          "bg-secondary": backgroundColor === "SECONDARY",
-          "bg-white": backgroundColor === "WHITE",
+const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
+  console.log("the blok in section with image looks like this", blok);
+  const {
+    image,
+    imagePosition,
+    backgroundColor,
+    headline,
+    cta,
+    blocks = [],
+  } = blok;
+  const router = useRouter();
+  const navigate = React.useCallback(
+    (to: string) => {
+      router.push(`/${to.replace(/^\//, "")}`);
+    },
+    [router]
+  );
+  return (
+    <section
+      className={cn("relative grid w-full md:grid-cols-2 overflow-hidden", {
+        "bg-secondary": backgroundColor === "SECONDARY",
+        "bg-white": backgroundColor === "WHITE",
+      })}
+    >
+      <motion.div
+        variants={slideLeftRight}
+        initial="imageHidden"
+        whileInView="animate"
+        viewport={{ once: false }}
+        custom={imagePosition}
+        className={cn({
+          "relative flex w-full": true,
+          "order-first": !imagePosition || imagePosition === "LEFT",
+          "order-last justify-end": imagePosition === "RIGHT",
         })}
       >
-        <motion.div
-          variants={slideLeftRight}
-          initial="imageHidden"
-          whileInView="animate"
-          viewport={{ once: false }}
-          custom={imagePosition}
-          className={cn({
-            "relative flex w-full": true,
-            "order-first": !imagePosition || imagePosition === "LEFT",
-            "order-last justify-end": imagePosition === "RIGHT",
-          })}
-        >
-          <div className="relative h-80 w-full transition-transform duration-700 md:h-full lg:max-h-[800px]">
-            <Image
-              src={image.url}
-              alt={image.alt || image.url}
-              objectFit="cover"
-              layout="fill"
-              className="transition-all duration-700"
-            />
+        <div className="relative h-80 w-full transition-transform duration-700 md:h-full lg:max-h-[800px]">
+          <Image
+            src={image.url}
+            alt={image.alt || image.url}
+            objectFit="cover"
+            layout="fill"
+            className="transition-all duration-700"
+          />
+        </div>
+      </motion.div>
+      <motion.div
+        variants={slideLeftRight}
+        initial="panelHidden"
+        whileInView="animate"
+        viewport={{ once: false }}
+        custom={imagePosition}
+        className={cn({
+          "flex flex-col justify-start w-full py-20 px-10 md:px-15": true,
+        })}
+      >
+        {headline && <Headline value={headline} underline />}
+        <BlockManager blocks={blocks} />
+        {cta && (
+          <div className="mt-9 flex justify-start">
+            <a
+              onClick={() => navigate((cta.internal as any).slug)}
+              className="flex cursor-pointer items-center space-x-1 text-xs font-medium uppercase text-primary hover:text-black"
+            >
+              <span>{cta.label}</span>
+              <BsChevronRight />
+            </a>
           </div>
-        </motion.div>
-        <motion.div
-          variants={slideLeftRight}
-          initial="panelHidden"
-          whileInView="animate"
-          viewport={{ once: false }}
-          custom={imagePosition}
-          className={cn({
-            "flex flex-col justify-start w-full py-20 px-10 md:px-15": true,
-          })}
-        >
-          {headline && <Headline value={headline.value} underline />}
-          <BlockManager blocks={blocks} />
-          {cta && (
-            <div className="mt-9 flex justify-start">
-              <a
-                onClick={() => navigate((cta.internal as any).slug)}
-                className="flex cursor-pointer items-center space-x-1 text-xs font-medium uppercase text-primary hover:text-black"
-              >
-                <span>{cta.label}</span>
-                <BsChevronRight />
-              </a>
-            </div>
-          )}
-        </motion.div>
-      </section>
-    );
-  }
-);
+        )}
+      </motion.div>
+    </section>
+  );
+});
 export default SectionWithImg;
