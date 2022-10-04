@@ -9,17 +9,11 @@ import { slideLeftRight } from "../../animations";
 import BlockManager from "../Blocks/BlockManager";
 import { BaseBlokProps } from "../../types/global";
 import Container from "../common/Container";
+import ReactIconsLoader from "../common/ReactIconsLoader";
 
 const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
   console.log("the blok in section with image looks like this", blok);
-  const {
-    image,
-    imagePosition,
-    backgroundColor,
-    headline,
-    cta: [cta],
-    blocks = [],
-  } = blok;
+  const { image, values, headline } = blok;
   const router = useRouter();
   const navigate = React.useCallback(
     (to: string) => {
@@ -28,61 +22,63 @@ const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
     [router]
   );
   return (
-    <Container className="mt-6 mb-16">
-      <section
-        className={cn("relative grid w-full md:grid-cols-2 overflow-hidden", {
-          "bg-secondary": backgroundColor === "SECONDARY",
-          "bg-white": backgroundColor === "WHITE",
-        })}
-      >
-        <motion.div
-          variants={slideLeftRight}
-          initial="imageHidden"
-          whileInView="animate"
-          viewport={{ once: false }}
-          custom={imagePosition}
-          className={cn({
-            "relative flex w-full": true,
-            "order-first": !imagePosition || imagePosition === "left",
-            "order-last justify-end": imagePosition === "right",
-          })}
-        >
-          <div className="relative h-80 w-full transition-transform duration-700 md:h-full lg:max-h-[800px]">
-            <Image
-              src={image.filename}
-              alt={image.name || image.filename}
-              objectFit="cover"
-              layout="fill"
-              className="transition-all duration-700"
-            />
-          </div>
-        </motion.div>
-        <motion.div
-          variants={slideLeftRight}
-          initial="panelHidden"
-          whileInView="animate"
-          viewport={{ once: false }}
-          custom={imagePosition}
-          className={cn({
-            "flex flex-col justify-start w-full py-20 px-10 md:px-15": true,
-          })}
-        >
-          {headline && <Headline value={headline} underline className="mb-5" />}
-          <BlockManager blocks={blocks} />
-          {cta && (
-            <div className="mt-9 flex justify-start">
-              <a
-                onClick={() => navigate((cta.internal as any).slug)}
-                className="flex cursor-pointer items-center space-x-1 text-xs font-medium uppercase text-primary hover:text-black"
-              >
-                <span>{cta.label}</span>
-                <BsChevronRight />
-              </a>
-            </div>
+    <div className="bg-[#EAF1FD] py-10 mb-5">
+      <Container className="mt-6 mb-16">
+        <section
+          className={cn(
+            "relative grid w-full md:grid-cols-2 overflow-hidden",
+            {}
           )}
-        </motion.div>
-      </section>
-    </Container>
+        >
+          <motion.div
+            variants={slideLeftRight}
+            initial="imageHidden"
+            whileInView="animate"
+            viewport={{ once: false }}
+            custom={"right"}
+            className={cn({
+              "relative flex w-full": true,
+              "order-last justify-end": true,
+            })}
+          >
+            <div className="relative h-80 w-full transition-transform duration-700 md:h-full lg:max-h-[800px]">
+              <Image
+                src={image.filename}
+                alt={image.name || image.filename}
+                objectFit="cover"
+                layout="fill"
+                className="transition-all duration-700"
+              />
+            </div>
+          </motion.div>
+          <motion.div
+            variants={slideLeftRight}
+            initial="panelHidden"
+            whileInView="animate"
+            viewport={{ once: false }}
+            custom={"right"}
+            className={cn({
+              "flex flex-col justify-start w-full py-20 px-10 md:px-15": true,
+            })}
+          >
+            {headline && (
+              <Headline value={headline} underline className="mb-5" />
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {values.map((value: any, index: number) => (
+                <div key={`${value}:${index}`} className="flex items-center mr-3">
+                  <ReactIconsLoader
+                    icon={value.icon}
+                    className="text-primary text-2xl"
+                  />
+                  <p className="text-lg ml-2">{value.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+      </Container>
+    </div>
   );
 });
 export default SectionWithImg;
