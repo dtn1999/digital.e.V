@@ -11,6 +11,7 @@ import Layout from "../components/layout";
 import Container from "../components/common/Container";
 import ReactIconsLoader from "../components/common/ReactIconsLoader";
 import { BsArrowRight } from "react-icons/bs";
+import ContactDialog from "../components/common/Dialog";
 
 interface Props {}
 
@@ -84,6 +85,7 @@ const Page: NextPage<PageProps & { story: any }> = React.memo(
                     E-Mail us
                   </span>
                 </button>
+                <ContactDialog isOpen={isOpen} closeModal={closeModal} />
               </div>
             </div>
           </Container>
