@@ -2,6 +2,9 @@ import React from "react";
 import cn from "classnames";
 import { Dialog, Transition } from "@headlessui/react";
 import Link from "next/link";
+import DynamicForm from "../Blocks/Form";
+import FormInput from "../Blocks/Form/FormInput";
+import FormTextarea from "../Blocks/Form/FormTextarea";
 interface Props {
   isOpen: boolean;
   closeModal: () => void;
@@ -35,53 +38,66 @@ const ContactDialog: React.FC<Props> = React.memo(({ isOpen, closeModal }) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <div className="flex mt-4 w-full">
-                  <div className="flex flex-col w-full mx-2">
-                    <p className="font-medium">Vorname</p>
-                    <input className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm" />
+                <DynamicForm
+                  onSubmit={(data: any) => {
+                    console.log(data);
+                    return new Promise((resolve) => {
+                      setTimeout(() => {
+                        resolve(true);
+                      }, 2000);
+                    });
+                  }}
+                >
+                  <div className="flex mt-4 w-full">
+                    <FormInput
+                      label={""}
+                      placeholder={""}
+                      name={""}
+                      required={false}
+                    />
+                    <FormInput
+                      label={""}
+                      placeholder={""}
+                      name={""}
+                      required={false}
+                    />
                   </div>
-                  <div className="flex flex-col w-full mx-2">
-                    <p className="font-medium">Nachname</p>
-                    <input className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm" />
+                  <div className="flex mt-4 w-full">
+                    <FormInput
+                      label={""}
+                      placeholder={""}
+                      name={""}
+                      required={false}
+                    />
+                    <FormInput
+                      label={""}
+                      placeholder={""}
+                      name={""}
+                      required={false}
+                    />
                   </div>
-                </div>
-                <div className="flex mt-4">
-                  <div className="flex flex-col mx-2 w-full">
-                    <p className="font-medium">Email</p>
-                    <input className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm" />
+                  <FormTextarea name={""} />
+                  <p className="mx-2 mt-4">
+                    Sie erklären sich damit einverstanden, dass Ihre Daten zur
+                    Bearbeitung Ihres Anliegens verarbeitet werden. Weitere
+                    Informationen und Widerrufshinweise finden Sie in der{" "}
+                    <Link href="#">
+                      <a href="#" className="text-primary">
+                        Datenschutzerklärung
+                      </a>
+                    </Link>
+                  </p>
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="flex items-center text-white bg-primary px-10 py-5 text-lg font-normal rounded-[200px] group transition-all duration-700 my-5"
+                    >
+                      <span className="first-letter:uppercase mx-5 group-hover:translate-x-2 transition-all duration-700">
+                        Absenden
+                      </span>
+                    </button>
                   </div>
-                  <div className="flex flex-col mx-2 w-full">
-                    <p className="font-medium">Telefone/Mobil</p>
-                    <input className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm" />
-                  </div>
-                </div>
-                <div className="mx-2">
-                  <p>Ihre Nachricht an uns</p>
-                  <textarea
-                    rows={5}
-                    className="w-full bg-[rgba(0,0,0,0.04)]"
-                  ></textarea>
-                </div>
-                <p className="mx-2">
-                  Sie erklären sich damit einverstanden, dass Ihre Daten zur
-                  Bearbeitung Ihres Anliegens verarbeitet werden. Weitere
-                  Informationen und Widerrufshinweise finden Sie in der{" "}
-                  <Link href="#">
-                    <a href="#" className="text-primary">
-                      Datenschutzerklärung
-                    </a>
-                  </Link>
-                </p>
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    className="flex items-center text-white bg-primary px-10 py-5 text-lg font-normal rounded-[200px] group transition-all duration-700 my-5"
-                  >
-                    <span className="first-letter:uppercase mx-5 group-hover:translate-x-2 transition-all duration-700">
-                      Absenden
-                    </span>
-                  </button>
-                </div>
+                </DynamicForm>
               </Dialog.Panel>
             </Transition.Child>
           </div>

@@ -16,49 +16,44 @@ interface Props extends BaseProps {
   onSubmit: (data: any) => Promise<boolean>;
 }
 
+const DynamicForm: React.FC<Props> = React.memo(({ children, onSubmit }) => {
+  const methods = useForm<any>();
+  const {
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = methods;
 
-const DynamicForm: React.FC<Props> = React.memo(
-  ({ children , onSubmit}) => {
-    const methods = useForm<any>();
-    const {
-      handleSubmit,
-      reset,
-      formState: { errors, isSubmitting },
-    } = methods;
+  const recaptchaRef = React.useRef<ReCAPTCHA>(null);
 
-    const recaptchaRef = React.useRef<ReCAPTCHA>(null);
-
-    const handleOnSubmit: SubmitHandler<any> = React.useCallback(
-      async (data) => {
-        toast.promise(
-          async () => {
-            const token = recaptchaRef.current?.getValue();
-            console.log("token", token);
-            const recaptchaValid = await handleRecaptchaValidation(token || "");
-            if (recaptchaValid) {
-              const successful = await onSubmit(data);
-              if (successful) {
-                reset();
-              }
-              recaptchaRef.current?.reset();
+  const handleOnSubmit: SubmitHandler<any> = React.useCallback(
+    async (data) => {
+      toast.promise(
+        async () => {
+          const token = recaptchaRef.current?.getValue();
+          console.log("token", token);
+          const recaptchaValid = await handleRecaptchaValidation(token || "");
+          if (recaptchaValid) {
+            const successful = await onSubmit(data);
+            if (successful) {
+              reset();
             }
-          },
-          {
-            pending: "Form is being submitted",
-            success: "Form submitted successfully",
-            error: "Error while submitting the Form",
+            recaptchaRef.current?.reset();
           }
-        );
-      },
-      [onSubmit, reset]
-    );
-    return (
-      <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(handleOnSubmit)}>
-          {children}
-        </form>
-      </FormProvider>
-    );
-  }
-);
+        },
+        {
+          pending: "Form is being submitted",
+          success: "Form submitted successfully",
+          error: "Error while submitting the Form",
+        }
+      );
+    },
+    [onSubmit, reset]
+  );
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(handleOnSubmit)}>{children}</form>
+    </FormProvider>
+  );
+});
 export default DynamicForm;
