@@ -15,7 +15,13 @@ interface Props {
   blok: any;
 }
 const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
-  const { image, description, cta:[cta], id, title } = blok;
+  const {
+    image,
+    description,
+    cta: [cta],
+    id,
+    title,
+  } = blok;
   const { isActive } = useSwiperSlide();
   const router = useRouter();
   const handleClick = React.useCallback(
@@ -28,7 +34,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
   return (
     <StoryblokEditable
       blok={blok}
-      className="relative grid h-[88%] w-full grid-cols-1 px-5  md:px-20"
+      className="relative grid h-[89%] w-full grid-cols-1 px-5  md:px-20"
     >
       <div className="flex h-full w-full flex-col justify-start pt-5 md:pt-32">
         {isActive && (
