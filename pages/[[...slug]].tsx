@@ -72,7 +72,11 @@ const Page: NextPage<PageProps & { story: any }> = React.memo(
                   info@digitalebildungfueralle.org
                 </div>
 
-                <button className="flex items-center text-primary bg-white px-10 py-5 text-lg font-normal rounded-[200px] group transition-all duration-700 my-5">
+                <button
+                  type="button"
+                  onClick={openModal}
+                  className="flex items-center text-primary bg-white px-10 py-5 text-lg font-normal rounded-[200px] group transition-all duration-700 my-5"
+                >
                   <span className="">
                     <BsArrowRight className="text-xl group-hover:translate-x-5 transition-all duration-700" />
                   </span>
