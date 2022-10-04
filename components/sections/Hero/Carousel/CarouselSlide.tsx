@@ -20,7 +20,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
     description,
     cta: [cta],
     id,
-    title,
+    title: headline,
   } = blok;
   const { isActive } = useSwiperSlide();
   const router = useRouter();
@@ -32,10 +32,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
   );
 
   return (
-    <StoryblokEditable
-      blok={blok}
-      className="relative grid h-[89%] w-full grid-cols-1 px-5  md:px-20"
-    >
+    <div className="relative grid h-full w-full grid-cols-1 px-5  md:px-20">
       <div className="flex h-full w-full flex-col justify-start pt-5 md:pt-32">
         {isActive && (
           <motion.div
@@ -46,9 +43,9 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
             exit="hidden"
             className="absolute z-50 mx-auto w-full text-white sm:max-w-sm md:max-w-md  md:px-[247px] lg:max-w-lg xl:max-w-xl"
           >
-            <div className="">
+            <div className="mt-[200px]">
               <motion.div variants={fadeInOut} className="md:my-5 lg:max-w-4xl">
-                <Headline value={title} />
+                <Headline value={headline} />
               </motion.div>
               <motion.p
                 variants={fadeInOut}
@@ -70,7 +67,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
                   variant="solid"
                 >
                   <span className="text-white">{cta.label}</span>
-                  <BsChevronRight className="text-white" />
+                  <BsChevronRight className="text-primary" />
                 </Button>
               </motion.div>
             </div>
@@ -80,7 +77,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
       <div className="absolute h-full w-full">
         <Image
           src={image.filename}
-          alt={image.filename || image.filename}
+          alt={image.filename || image.url}
           objectPosition="center"
           objectFit="cover"
           layout="fill"
@@ -88,7 +85,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
         <div className={cn("absolute inset-0 z-20 bg-black/70")} />
         <NavigationControls />
       </div>
-    </StoryblokEditable>
+    </div>
   );
 });
 export default CarouselSlide;
