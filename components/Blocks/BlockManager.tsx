@@ -42,8 +42,8 @@ export const BlockSwitcher: React.FC<any> = React.memo(({ typename, data }) => {
 const BlockManager: React.FC<any> = React.memo(({ blocks }) => {
   const blocksComponents = React.useMemo(() => {
     // @ts-ignore
-    return blocks.map(({ id, typename, ...props }) => (
-      <BlockSwitcher key={id} typename={typename} data={{ ...props }} />
+    return blocks.map(({ blok }) => (
+      <BlockSwitcher key={blok.id} typename={blok.component} data={blok} />
     ));
   }, [blocks]);
   return <React.Fragment>{blocksComponents}</React.Fragment>;
