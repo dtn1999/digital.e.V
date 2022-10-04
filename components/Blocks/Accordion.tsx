@@ -61,7 +61,7 @@ export const AccordionItem: React.FC<ItemProps> = React.memo(
               </span>
             </Disclosure.Button>
             <Disclosure.Panel className="pb-5 text-sm font-light lowercase first-letter:uppercase">
-              <RichText blok={details} />
+              <Paragraph blok={details} />
             </Disclosure.Panel>
           </>
         )}
