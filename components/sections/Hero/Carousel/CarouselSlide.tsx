@@ -49,9 +49,9 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
               </motion.div>
               <motion.p
                 variants={fadeInOut}
-                className="my-5 text-lg lg:pr-[10%]"
+                className="my-5 text-lg pr-[10%] break-words"
               >
-                <p className="text-sm font-light leading-relaxed text-white md:text-xl">
+                <p className="text-sm font-light leading-relaxed text-white md:text-xl break-words">
                   {description}
                 </p>
               </motion.p>
