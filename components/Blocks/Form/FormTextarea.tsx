@@ -7,7 +7,7 @@ const FormTextarea: React.FC<any> = React.memo(({ ...props }) => {
   const { register } = useFormContext();
   return (
     <div className="mx-2">
-      <p>Ihre Nachricht an uns</p>
+      <p>{label}</p>
       <textarea
         {...register(name, { required })}
         placeholder={placeholder}
