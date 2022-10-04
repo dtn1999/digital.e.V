@@ -5,83 +5,80 @@ import Container from "../common/Container";
 import Button from "../common/Button";
 import Headline from "../Blocks/Headline";
 import ReactIconsLoader from "../common/ReactIconsLoader";
+import ContactDialog from "../common/Dialog";
+import { BsArrowRight } from "react-icons/bs";
 interface Props {}
+
 const Footer: React.FC<Props> = React.memo(({}) => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
   return (
-    <footer className="relative w-full bg-secondary">
+    <footer className="relative w-full bg-primary">
       <Container>
-        <div className="grid grid-cols-1 gap-8 pt-5 pb-10 md:-mx-4 md:grid-cols-3">
-          <div className="w-full px-4">
-            <div className="mt-4 flex flex-col font-bold">
-              <div className="relative h-[100px] w-[300px]">
-                <Image src="/images/logo.png" alt="logo" layout="fill" />
-              </div>
-            </div>
-            <p className="mt-4">
-              The world without photography will be meaningless to us if there
-              is no light and color, which opens up our minds and expresses
-              passion.
+        <div className="grid grid-cols-1 md:grid-cols-3 py-14 text-white  ">
+          <div className="mx-4 pr-10">
+            <h1 className="text-4xl font-bold">
+              You want to support us or work with us?
+            </h1>
+          </div>
+          <div className="m-4">
+            <h2 className="mb-2 text-xl font-semibold capitalize">
+              Donation account
+            </h2>
+            <p className="my-4">
+              Digitale Bildung für Alle e.V.
+              <br />
+              IBAN: DE18 2007 0024 0508 6053 00
+              <br />
+              BIC: DEUTDEDBHAM
+              <br />
+              Deutsche Bank
             </p>
-            <Link href="/become-member">
-              <Button variant="solid" className="mt-5 w-full">
-                Become Member
-              </Button>
-            </Link>
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=KSS7HDBDMQB3Q"
+              target="_blank my-5"
+              rel="noreferrer"
+            >
+              <button className="flex items-center text-2xl">
+                <ReactIconsLoader icon="FaPaypal" className="text-white" />
+                PayPal
+              </button>
+            </a>
           </div>
-          <div className="flex w-full flex-col px-4 md:ml-10">
-            <Headline
-              underline
-              underlineAlign="left"
-              value="Links"
-              className="text-4xl"
-            />
-            <div className="mt-4 flex flex-col">
-              <Link href="/impressum">
-                <a className="mb-4 font-medium capitalize underline">
-                  Impressum
-                </a>
-              </Link>
-              <Link href="/data-privacy">
-                <a className="mb-4 font-medium capitalize underline">
-                  Datenschutz
-                </a>
-              </Link>
+          <div className="m-4">
+            <h2 className="text-xl font-semibold mb-2 capitalize">contact</h2>
+            <div>
+              Digitale Bildung für Alle e.V.
+              <br />
+              Kleine Hamburger Str. 15 10117 Berlin
+              <br />
+              info@digitalebildungfueralle.org
             </div>
-          </div>
-          <div className="w-full px-4">
-            <Headline
-              underline
-              underlineAlign="left"
-              value="Contact"
-              className="text-4xl"
-            />
-            <div className="mt-4">
-              <div className="mt-4 flex space-x-3">
-                <span className="capitalize">phone:</span>
-                <span>+1 (800) 456 37 11</span>
-              </div>
-              <div className="mt-4 flex space-x-3">
-                <span className="capitalize">email:</span>
-                <span>support@promo-theme.com</span>
-              </div>
-              <div className="mt-6">
-                Copyright © 2022 vkii ruhrbezirk. All Rights Reserved.
-              </div>
-            </div>
+
+            <button
+              type="button"
+              onClick={openModal}
+              className="flex items-center text-primary bg-white px-10 py-5 text-lg font-normal rounded-[200px] group transition-all duration-700 my-5"
+            >
+              <span className="">
+                <BsArrowRight className="text-xl group-hover:translate-x-5 transition-all duration-700" />
+              </span>
+              <span className="first-letter:uppercase mx-5 group-hover:translate-x-2 transition-all duration-700">
+                E-Mail us
+              </span>
+            </button>
+            <ContactDialog isOpen={isOpen} closeModal={closeModal} />
           </div>
         </div>
       </Container>
-      <div
-        onClick={() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-        className="absolute bottom-0 right-0 mr-8 mb-4 flex h-11 w-11 cursor-pointer items-center justify-center border border-black/10"
-      >
-        <ReactIconsLoader
-          icon="RiArrowUpLine"
-          className="text-2xl text-black/50"
-        />
-      </div>
     </footer>
   );
 });
