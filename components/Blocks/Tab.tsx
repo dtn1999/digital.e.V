@@ -22,6 +22,7 @@ const Tab: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
       {headline && (
         <Headline value={headline} underline underlineAlign="left" />
       )}
+      
       <HeadLessUiTab.Group>
         <HeadLessUiTab.List className="mb-4 mt-8 flex space-x-11">
           {tabs.map((tab: any) => (
@@ -46,7 +47,7 @@ const Tab: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
               key={tab.title}
               className="mt-4 font-light leading-8 first-letter:uppercase"
             >
-              <Paragraph value={tab.content} />
+              <Paragraph blok={tab.content} />
             </HeadLessUiTab.Panel>
           ))}
         </HeadLessUiTab.Panels>
