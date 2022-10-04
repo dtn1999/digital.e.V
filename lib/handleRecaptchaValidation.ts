@@ -1,5 +1,4 @@
-import { SITE_SECRET_KEY } from "@app/utils/envVariables"
-
+import { SITE_SECRET_KEY } from "../utils/envVariables"
 
 export async function handleRecaptchaValidation(token:string) {
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SITE_SECRET_KEY}&response=${token}`
