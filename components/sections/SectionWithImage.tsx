@@ -17,7 +17,7 @@ const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
     imagePosition,
     backgroundColor,
     headline,
-    cta,
+    cta: [cta],
     blocks = [],
   } = blok;
   const router = useRouter();
