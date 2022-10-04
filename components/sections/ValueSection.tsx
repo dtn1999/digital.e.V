@@ -66,7 +66,7 @@ const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
             )}
             <div className="grid grid-cols-1 md:grid-cols-2">
               {values.map((value: any, index: number) => (
-                <div key={`${value}:${index}`} className="flex items-center mr-3">
+                <div key={`${value}:${index}`} className="flex items-center mr-3 my-2">
                   <ReactIconsLoader
                     icon={value.icon}
                     className="text-primary text-2xl"

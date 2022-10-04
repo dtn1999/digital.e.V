@@ -7,16 +7,13 @@ const FormInput: React.FC<any> = React.memo(({ className, ...props }) => {
   const { register } = useFormContext();
 
   return (
-    <input
-      {...register(name, { required: required ? true : false })}
-      name={name}
-      type={type?.toString().toLowerCase()}
-      placeholder={placeholder || ""}
-      className={cn(
-        "focus:outline-none placeholder:text-black placeholder:font-light text-sm w-full py-3 px-4 border border-black mb-4",
-        className
-      )}
-    />
+    <div className="flex flex-col w-full mx-2">
+      <p className="font-medium">Vorname</p>
+      <input
+        {...register(name, { required: required ? true : false })}
+        className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm"
+      />
+    </div>
   );
 });
 export default FormInput;
