@@ -1,6 +1,8 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import ReactPlayer from "react-player";
+import Headline from "../../Blocks/Headline";
+import Container from "../../common/Container";
 import StoryblokEditable from "../../StoryblokEditable";
 
 interface Props {
@@ -36,10 +38,14 @@ const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
         playing
       />
       <div className="bg-black/60 items-center top-0 left-0 w-full h-full z-10 flex">
-        <div className="relative w-full max-w-7xl mx-auto">
-          <h1 className="text-white text-[62px] max-w-[740px] font-bold mb-10">
+        <Container className="w-full">
+          <Headline
+            value={heroTitle}
+            className="text-white mb-10 md:my-5 lg:max-w-4xl"
+          />
+          {/* <h1 className="text-white text-[62px] max-w-[740px] font-bold mb-10">
             {heroTitle}
-          </h1>
+          </h1> */}
           <button className="flex items-center text-white bg-primary px-10 py-5 text-lg font-normal rounded-[200px] group transition-all duration-700">
             <span className="">
               <BsArrowRight className="text-4xl group-hover:translate-x-5 transition-all duration-700" />
@@ -48,7 +54,7 @@ const VideoHero: React.FC<Props> = React.memo(({ blok }) => {
               {buttonLabel}
             </span>
           </button>
-        </div>
+        </Container>
       </div>
     </StoryblokEditable>
   );

@@ -15,7 +15,6 @@ interface Props extends BaseProps {
   socialHandles: any[];
 }
 
-
 const Layout: React.FC<Props> = React.memo(
   ({ children, navBar, socialHandles, seo }) => {
     const [ref, { height }] = useMeasure<any>();
@@ -29,9 +28,9 @@ const Layout: React.FC<Props> = React.memo(
             ctas={navBar.ctas}
             headerHeight={height}
           />
-          <main style={{}} className="relative h-full w-full">
+          <main style={{}} className="h-full w-full">
             {children}
-            {/* {socialHandles.length > 0 && (
+            {socialHandles.length > 0 && (
               <div className="w-full bg-[#E8E8E8]">
                 <SocialsHandles
                   socials={socialHandles}
@@ -40,7 +39,7 @@ const Layout: React.FC<Props> = React.memo(
                 />
               </div>
             )}
-            <Footer /> */}
+            {/* <Footer /> */}
           </main>
           <div className="fixed -right-5 top-48 z-[100] flex items-center">
             <LanguageSwitch />
