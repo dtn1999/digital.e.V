@@ -29,9 +29,6 @@ const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
   );
   return (
     <Container className="mt-6 mb-16">
-      <blockquote className="">
-        Das wissen sollte jede Zeit, überall, für jede(n) zugänglich sein
-      </blockquote>
       <section
         className={cn("relative grid w-full md:grid-cols-2 overflow-hidden", {
           "bg-secondary": backgroundColor === "SECONDARY",
