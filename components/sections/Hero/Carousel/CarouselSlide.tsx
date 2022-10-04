@@ -32,7 +32,7 @@ const CarouselSlide: React.FC<Props> = React.memo(({ blok }) => {
   );
 
   return (
-    <div className="relative grid h-full w-full grid-cols-1 px-5  md:px-20">
+    <div className="relative grid h-screen w-full grid-cols-1 px-5  md:px-20">
       <div className="flex h-full w-full flex-col justify-start pt-5 md:pt-32">
         {isActive && (
           <motion.div
