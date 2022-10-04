@@ -1,8 +1,9 @@
 import React from "react";
 import cn from "classnames";
-import { Tab as HeadLessUiTab} from "@headlessui/react";
+import { Tab as HeadLessUiTab } from "@headlessui/react";
 import Headline from "./Headline";
 import Paragraph from "./Paragraph";
+import { BaseBlokProps } from "../../types/global";
 
 interface TabItem {
   title: string;
@@ -14,13 +15,16 @@ interface Props {
   headline?: any;
 }
 
-const Tab: React.FC<Props> = React.memo(({ tabs, headline }) => {
+const Tab: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
+  const { items: tabs, headline } = blok;
   return (
     <React.Fragment>
-      {headline && <Headline {...headline} />}
+      {headline && (
+        <Headline value={headline} underline underlineAlign="left" />
+      )}
       <HeadLessUiTab.Group>
         <HeadLessUiTab.List className="mb-4 mt-8 flex space-x-11">
-          {tabs.map((tab) => (
+          {tabs.map((tab: any) => (
             <HeadLessUiTab
               key={tab.title}
               className={({ selected }) =>
@@ -37,7 +41,7 @@ const Tab: React.FC<Props> = React.memo(({ tabs, headline }) => {
           ))}
         </HeadLessUiTab.List>
         <HeadLessUiTab.Panels>
-          {tabs.map((tab) => (
+          {tabs.map((tab: any) => (
             <HeadLessUiTab.Panel
               key={tab.title}
               className="mt-4 font-light leading-8 first-letter:uppercase"
