@@ -1,9 +1,18 @@
 import React from "react";
 import cn from "classnames";
 import { useFormContext } from "react-hook-form";
+import { BaseProps } from "../../../types/global";
 
-const FormTextarea: React.FC<any> = React.memo(({ ...props }) => {
-  const { label, placeholder, name, required } = props as any;
+interface Props extends BaseProps {
+  label?: string;
+  placeholder?: string;
+  name: string;
+  required?: boolean;
+  type?: HTMLInputElement["type"];
+}
+
+const FormTextarea: React.FC<Props> = React.memo(({ ...props }) => {
+  const { label, placeholder, name, required } = props;
   const { register } = useFormContext();
   return (
     <div className="mx-2">
