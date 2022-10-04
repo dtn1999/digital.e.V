@@ -5,21 +5,24 @@ import SwiperCore, { Autoplay, Pagination } from "swiper";
 import Image from "next/image";
 import { usePagination } from "../../hooks/usePagination";
 import NavigationControls from "./Hero/Carousel/NavigationControls";
+import { BaseBlokProps } from "../../types/global";
+import Container from "../common/Container";
 
 interface Props {
   testimonials: any[];
 }
 
 SwiperCore.use([Autoplay, Pagination]);
-const SectionTestimonial: React.FC<Props> = React.memo(
-  ({ testimonials = [] }) => {
-    const pagination = usePagination();
-    return (
+const SectionTestimonial: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
+  const { testimonials = [] } = blok;
+  const pagination = usePagination();
+  return (
+    <Container className="bg-primary max-h-[600px]">
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
         slidesPerGroup={1}
-        loop={true}
+        loop={testimonials.length > 0}
         autoplay={{
           delay: 9000,
         }}
@@ -27,13 +30,13 @@ const SectionTestimonial: React.FC<Props> = React.memo(
         loopFillGroupWithBlank={true}
         className="relative h-full w-full px-4"
       >
-        {testimonials.map((testimonial) => (
-          <SwiperSlide key={testimonial.id} className="h-full w-full">
+        {testimonials.map((testimonial: any) => (
+          <SwiperSlide key={testimonial.id} className="relative h-full w-full">
             <div className="grid grid-cols-1 bg-secondary md:grid-cols-2">
               <div className="relative h-[600px] w-full">
                 <Image
                   alt={testimonial.author}
-                  src={testimonial.image.url}
+                  src={testimonial.image.filename}
                   layout="fill"
                   objectFit="cover"
                 />
@@ -64,7 +67,7 @@ const SectionTestimonial: React.FC<Props> = React.memo(
           arrowHoverStyle="hover:text-primary"
         />
       </Swiper>
-    );
-  }
-);
+    </Container>
+  );
+});
 export default SectionTestimonial;

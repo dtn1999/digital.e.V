@@ -1,6 +1,12 @@
 import React from "react";
-import "../styles/tailwind.css";
+import "../styles/globals.css";
 import "../styles/ReactSwipper.css";
+import "react-toastify/dist/ReactToastify.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
+
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react";
 import type { AppContext, AppProps } from "next/app";
 import App from "next/app";
@@ -41,7 +47,7 @@ const components = {
   ServiceSection,
   TestimonialSection,
   CollaboratorSection,
-  ProjectSection
+  ProjectSection,
 };
 
 storyblokInit({
