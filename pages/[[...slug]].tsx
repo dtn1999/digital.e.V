@@ -19,7 +19,7 @@ const Page: NextPage<PageProps & { story: any }> = React.memo(
   ({ layout, story }) => {
     const { navBar, footer, socialHandles } = layout;
     const storyParams = useStoryblokState(story);
-    const [isOpen, setIsOpen] = React.useState<boolean>(true);
+    const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
     function closeModal() {
       setIsOpen(false);
