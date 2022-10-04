@@ -6,6 +6,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Paragraph from "./Paragraph";
 import Headline from "./Headline";
 import { BaseBlokProps } from "../../types/global";
+import RichText from "../common/RichText";
 
 interface Props {
   headline?: any;
@@ -60,7 +61,7 @@ export const AccordionItem: React.FC<ItemProps> = React.memo(
               </span>
             </Disclosure.Button>
             <Disclosure.Panel className="pb-5 text-sm font-light lowercase first-letter:uppercase">
-              <Paragraph value={details} />
+              <RichText blok={details} />
             </Disclosure.Panel>
           </>
         )}
@@ -76,7 +77,7 @@ const Accordion: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
     <React.Fragment>
       {headline && <Headline {...headline} />}
       <div className="mb-4 mt-8 w-full ">
-        {items.map((item:any) => (
+        {items.map((item: any) => (
           <AccordionItem key={item.summary} {...item} />
         ))}
       </div>
