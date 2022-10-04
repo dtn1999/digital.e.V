@@ -10,7 +10,7 @@ interface Props {
 const ContactDialog: React.FC<Props> = React.memo(({ isOpen, closeModal }) => {
   return (
     <Transition appear show={isOpen} as={React.Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={closeModal}>
+      <Dialog as="div" className="relative z-[999]" onClose={closeModal}>
         <Transition.Child
           as={React.Fragment}
           enter="ease-out duration-300"
@@ -20,7 +20,7 @@ const ContactDialog: React.FC<Props> = React.memo(({ isOpen, closeModal }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-30" />
+          <div className="fixed inset-0 bg-black bg-opacity-75" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -35,7 +35,7 @@ const ContactDialog: React.FC<Props> = React.memo(({ isOpen, closeModal }) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <div className="flex mt-2 w-full">
+                <div className="flex mt-4 w-full">
                   <div className="flex flex-col w-full mx-2">
                     <p className="font-medium">Vorname</p>
                     <input className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm" />
@@ -45,7 +45,7 @@ const ContactDialog: React.FC<Props> = React.memo(({ isOpen, closeModal }) => {
                     <input className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm" />
                   </div>
                 </div>
-                <div className="flex mt-2">
+                <div className="flex mt-4">
                   <div className="flex flex-col mx-2 w-full">
                     <p className="font-medium">Email</p>
                     <input className="p-[10px] bg-[rgba(0,0,0,.04)] rounded-sm" />
