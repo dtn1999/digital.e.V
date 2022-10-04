@@ -9,6 +9,6 @@ interface Props {
 const Paragraph: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
   console.log("Paragraph", blok);
   const { value } = blok;
-  return <RichText blok={value} />;
+  return <RichText blok={value ?? blok} />;
 });
 export default Paragraph;
