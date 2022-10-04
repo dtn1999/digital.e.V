@@ -28,7 +28,7 @@ const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
     [router]
   );
   return (
-    <Container >
+    <Container className="mt-6 mb-16">
       <section
         className={cn("relative grid w-full md:grid-cols-2 overflow-hidden", {
           "bg-secondary": backgroundColor === "SECONDARY",
