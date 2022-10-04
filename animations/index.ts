@@ -1,4 +1,3 @@
-import { ImagePosition } from "@app/types/graphql";
 
 export const container = {
     hidden: { opacity: 0 },
@@ -25,13 +24,13 @@ export const fadeInOut = {
  * this animation is used in the @{@link "../features/Section/index.tsx"}
  */  
 export const  slideLeftRight = {
-    imageHidden: (imagePosition: ImagePosition) => ({
+    imageHidden: (imagePosition: "left"|"right") => ({
       opacity: 0,
-      x: !imagePosition || imagePosition === "LEFT" ? "-100%" : "100%",
+      x: !imagePosition || imagePosition === "left" ? "-100%" : "100%",
     }),
-    panelHidden: (imagePosition: ImagePosition) => ({
+    panelHidden: (imagePosition: "left"|"right") => ({
       opacity: 0,
-      x: !imagePosition || imagePosition === "LEFT" ? "100%" : "-100%",
+      x: !imagePosition || imagePosition === "left" ? "100%" : "-100%",
     }),
     animate: {
       opacity: 1,
