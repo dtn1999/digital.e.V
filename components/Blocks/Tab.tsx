@@ -4,7 +4,6 @@ import { Tab as HeadLessUiTab } from "@headlessui/react";
 import Headline from "./Headline";
 import Paragraph from "./Paragraph";
 import { BaseBlokProps } from "../../types/global";
-import RichText from "../common/RichText";
 
 interface TabItem {
   title: string;
@@ -48,7 +47,7 @@ const Tab: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
               key={tab.title}
               className="mt-4 font-light leading-8 first-letter:uppercase"
             >
-              <RichText blok={tab.content} />
+              <Paragraph blok={tab.content} />
             </HeadLessUiTab.Panel>
           ))}
         </HeadLessUiTab.Panels>
