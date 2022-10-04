@@ -5,6 +5,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 import Paragraph from "./Paragraph";
 import Headline from "./Headline";
+import { BaseBlokProps } from "../../types/global";
 
 interface Props {
   headline?: any;
@@ -68,13 +69,14 @@ export const AccordionItem: React.FC<ItemProps> = React.memo(
   }
 );
 
-const Accordion: React.FC<Props> = React.memo(({ items, headline }) => {
+const Accordion: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
+  const { headline, items } = blok;
   console.log("accordion items", items);
   return (
     <React.Fragment>
       {headline && <Headline {...headline} />}
       <div className="mb-4 mt-8 w-full ">
-        {items.map((item) => (
+        {items.map((item:any) => (
           <AccordionItem key={item.summary} {...item} />
         ))}
       </div>
