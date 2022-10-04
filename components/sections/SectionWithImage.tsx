@@ -43,8 +43,8 @@ const SectionWithImg: React.FC<BaseBlokProps> = React.memo(({ blok }) => {
           custom={imagePosition}
           className={cn({
             "relative flex w-full": true,
-            "order-first": !imagePosition || imagePosition === "LEFT",
-            "order-last justify-end": imagePosition === "RIGHT",
+            "order-first": !imagePosition || imagePosition === "left",
+            "order-last justify-end": imagePosition === "right",
           })}
         >
           <div className="relative h-80 w-full transition-transform duration-700 md:h-full lg:max-h-[800px]">
