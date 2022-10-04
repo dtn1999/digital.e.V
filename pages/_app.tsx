@@ -12,6 +12,15 @@ import Page from "../components/pages/Page";
 import VideoHero from "../components/sections/Hero/VideoHero";
 import HeroManager from "../components/sections/Hero/HeroManager";
 import CarouselSlide from "../components/sections/Hero/Carousel/CarouselSlide";
+import RichText from "../components/common/RichText";
+import Tab from "../components/Blocks/Tab";
+import Accordion from "../components/Blocks/Accordion";
+import SectionWithImage from "../components/sections/SectionWithImage";
+import CollaboratorSection from "../components/sections/CollaboratorSection";
+import ProjectSection from "../components/sections/ProjectSection";
+import ServiceSection from "../components/sections/ServiceSection";
+import TeamSection from "../components/sections/TeamSection";
+import TestimonialSection from "../components/sections/TestimonialSection";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -24,6 +33,15 @@ const components = {
   VideoHero,
   HeroManager,
   CarouselSlide,
+  RichText,
+  Tab,
+  Accordion,
+  SectionWithImage,
+  TeamSection,
+  ServiceSection,
+  TestimonialSection,
+  CollaboratorSection,
+  ProjectSection
 };
 
 storyblokInit({
