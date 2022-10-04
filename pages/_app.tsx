@@ -29,6 +29,7 @@ import TeamSection from "../components/sections/TeamSection";
 import TestimonialSection from "../components/sections/TestimonialSection";
 import Paragraph from "../components/Blocks/Paragraph";
 import GridSection from "../components/sections/GridSection";
+import ValueSection from "../components/sections/ValueSection";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -52,6 +53,7 @@ const components = {
   ProjectSection,
   Paragraph,
   GridSection,
+  ValueSection,
 };
 
 storyblokInit({
