@@ -41,10 +41,7 @@ const NavBar = React.forwardRef<HTMLHeadElement, Props>(
       <React.Fragment>
         <header
           className={cn(
-            "xl:px-16 px-4 min-h-[90px] flex items-center z-[100] transition-all duration-700 bg-white",
-            {
-              "fixed top-0 w-full transition-all duration-700": isSticky,
-            }
+            "xl:px-16 px-4 min-h-[90px] flex items-center z-[100] transition-all duration-700 bg-white max-h-[112px] fixed left-0 right-0 top-0"
           )}
           ref={ref}
         >

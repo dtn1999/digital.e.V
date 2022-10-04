@@ -31,13 +31,13 @@ const Carousel: React.FC<Props> = React.memo(({ blok }) => {
           delay: 8000,
           disableOnInteraction: true,
         }}
-        className="relative h-full w-full bg-primary"
+        className="relative h-full w-full"
       >
         {slides.map((item: any) => (
           <StoryblokEditable key={item.id} blok={blok}>
             <SwiperSlide
               key={item.id}
-              className="relative h-screen w-full bg-primary"
+              className="relative h-full w-full bg-primary"
             >
               <CarouselSlide key={item.id} blok={item} />
             </SwiperSlide>
