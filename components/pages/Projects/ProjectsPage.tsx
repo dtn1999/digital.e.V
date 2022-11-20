@@ -10,19 +10,9 @@ interface Props {
 const SectionLayout: React.FC<Props> = React.memo(({ blok }) => {
   const { blocks, paddingTop, paddingBottom, marginTop, marginBottom } = blok;
   console.log("blok", blok);
-  const displayLayoutContainer = React.useCallback(
-    (columnNumber: number, blocks: any[]) => {
-      const className = `grid md:grid-cols-${columnNumber} gap-4 grid-cols-1`;
-      return (
-        <div className={className}>
-          {blocks.map((blok: any) => (
-            <StoryblokComponent blok={blok} key={blok._uid} />
-          ))}
-        </div>
-      );
-    },
-    []
-  );
+  const loadProjects = React.useCallback(() => {
+
+  }, [])
   return (
     <StoryblokEditable blok={blok}>
       <Container>
@@ -35,7 +25,7 @@ const SectionLayout: React.FC<Props> = React.memo(({ blok }) => {
             marginBottom: Number(marginBottom),
           }}
         >
-            
+
         </div>
       </Container>
     </StoryblokEditable>
