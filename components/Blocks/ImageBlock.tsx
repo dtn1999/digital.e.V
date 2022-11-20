@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ImageBlock: React.FC<Props> = React.memo(({ blok }) => {
-  const { image, marginTop, marginBottom } = blok;
+  const { image, marginTop, marginBottom, marginLeft, marginRight } = blok;
   return (
     <StoryblokEditable blok={blok}>
       <div
@@ -16,6 +16,8 @@ const ImageBlock: React.FC<Props> = React.memo(({ blok }) => {
         style={{
           marginTop: Number(marginTop),
           marginBottom: Number(marginBottom),
+          marginLeft: Number(marginLeft),
+          marginRight: Number(marginRight),
         }}
       >
         <Image src={image.filename} alt={image.alt} layout="fill" />
