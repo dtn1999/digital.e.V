@@ -32,6 +32,7 @@ import GridSection from "../components/sections/GridSection";
 import ValueSection from "../components/sections/ValueSection";
 import SectionContainer from "../components/sections/SectionContainer";
 import SectionLayout from "../components/sections/SectionLayout";
+import ImageBlock from "../components/Blocks/ImageBlock";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -57,7 +58,8 @@ const components = {
   GridSection,
   ValueSection,
   SectionContainer,
-  SectionLayout
+  SectionLayout,
+  ImageBlock
 };
 
 storyblokInit({
