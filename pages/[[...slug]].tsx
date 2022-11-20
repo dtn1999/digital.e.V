@@ -5,7 +5,7 @@ import {
   useStoryblokState,
 } from "@storyblok/react";
 import cn from "classnames";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { PageProps } from "../types/global";
 import Layout from "../components/layout";
 import Container from "../components/common/Container";
@@ -30,7 +30,7 @@ const Page: NextPage<PageProps & { story: any }> = React.memo(
   }
 );
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.params as any;
   const pageSlug = slug === undefined ? "home" : slug[0];
   const { data } = await getStoryblokApi().get("cdn/stories", {
@@ -46,6 +46,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
+/*
 export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await getStoryblokApi().get("cdn/links/", {
     starts_with: "pages/",
@@ -66,4 +67,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   };
 };
+*/
 export default Page;
