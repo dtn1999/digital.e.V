@@ -1,12 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import StoryblokEditable from "../StoryblokEditable";
 
-const ProjectCard: React.FC<any["projects"][number]> = React.memo(
-  ({ id, name, image, description, slug }) => {
-    const index = Math.round(Math.random() * 4) % 4;
+interface Props {
+  blok: any;
+}
 
-    return (
+const Project: React.FC<Props> = React.memo(({ blok }) => {
+  const { id, name, image, description, brief, slug } = blok;
+  const index = Math.round(Math.random() * 4) % 4;
+
+  return (
+    <StoryblokEditable blok={blok}>
       <Link href={`/projects/${slug}`}>
         <div className="px-4">
           <div
@@ -38,7 +44,7 @@ const ProjectCard: React.FC<any["projects"][number]> = React.memo(
           </div>
         </div>
       </Link>
-    );
-  }
-);
-export default ProjectCard;
+    </StoryblokEditable>
+  );
+});
+export default Project;

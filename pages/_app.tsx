@@ -33,6 +33,7 @@ import ValueSection from "../components/sections/ValueSection";
 import SectionContainer from "../components/sections/SectionContainer";
 import SectionLayout from "../components/sections/SectionLayout";
 import ImageBlock from "../components/Blocks/ImageBlock";
+import Project from "../components/Blocks/ProjectCard";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -59,7 +60,8 @@ const components = {
   ValueSection,
   SectionContainer,
   SectionLayout,
-  ImageBlock
+  ImageBlock,
+  Project,
 };
 
 storyblokInit({
@@ -117,10 +119,10 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     version: "draft",
   });
 
-   const { data:meta } = await getStoryblokApi().get("cdn/stories/meta/meta", {
+  const { data: meta } = await getStoryblokApi().get("cdn/stories/meta/meta", {
     version: "draft",
   });
-  const { content } = data.story;
+  const { content } = meta.story;
   console.log("retrieved content is ", content);
 
   const links = Object.keys(data.links)
