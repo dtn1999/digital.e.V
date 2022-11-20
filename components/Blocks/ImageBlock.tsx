@@ -8,19 +8,26 @@ interface Props {
 }
 
 const ImageBlock: React.FC<Props> = React.memo(({ blok }) => {
-  const { image, marginTop, marginBottom, marginLeft, marginRight } = blok;
+  const { image, marginTop, marginBottom, marginLeft, marginRight, height } =
+    blok;
   return (
     <StoryblokEditable blok={blok}>
       <div
-        className="relative w-full h-full max-h-[600px] max-w-[380px]"
+        className="relative w-full h-full max-h-[600px] bg-primary/80"
         style={{
           marginTop: Number(marginTop),
           marginBottom: Number(marginBottom),
           marginLeft: Number(marginLeft),
           marginRight: Number(marginRight),
+          height: Number(height),
         }}
       >
-        <Image src={image.filename} alt={image.alt} layout="fill" />
+        <Image
+          src={image.filename}
+          alt={image.alt}
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
     </StoryblokEditable>
   );
