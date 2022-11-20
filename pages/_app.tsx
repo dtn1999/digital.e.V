@@ -30,6 +30,8 @@ import TestimonialSection from "../components/sections/TestimonialSection";
 import Paragraph from "../components/Blocks/Paragraph";
 import GridSection from "../components/sections/GridSection";
 import ValueSection from "../components/sections/ValueSection";
+import SectionContainer from "../components/sections/SectionContainer";
+import SectionLayout from "../components/sections/SectionLayout";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -54,6 +56,8 @@ const components = {
   Paragraph,
   GridSection,
   ValueSection,
+  SectionContainer,
+  SectionLayout
 };
 
 storyblokInit({
