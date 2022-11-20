@@ -117,6 +117,12 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     version: "draft",
   });
 
+   const { data:meta } = await getStoryblokApi().get("cdn/stories/meta/meta", {
+    version: "draft",
+  });
+  const { content } = data.story;
+  console.log("retrieved content is ", content);
+
   const links = Object.keys(data.links)
     .map((linkKey) => ({
       slug: data.links[linkKey].slug,
@@ -136,7 +142,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
           links,
           ctas: [],
         },
-        socialHandles: [],
+        socialHandles: content.socials || [],
       },
     },
   };
