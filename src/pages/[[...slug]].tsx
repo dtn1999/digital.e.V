@@ -41,8 +41,8 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
   const querySlug = slug === undefined ? "pages/home" : slug.join("/");
 
   const sbParams = {
-     version: preview ? "draft" : "published", //for when we will start publishing
-    //version: "draft",
+    //version: preview ? "draft" : "published", //for when we will start publishing
+    version: "draft",
     resolve_relations: [
       "FeaturedProjects.projects",
       "FeaturedMembers.members",
