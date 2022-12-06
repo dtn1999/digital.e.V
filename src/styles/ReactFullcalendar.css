@@ -1,0 +1,102 @@
+.fc-scrollgrid-sync-inner {
+  text-align: left;
+}
+
+.fc th:last-child {
+  border-right-width: 1px !important;
+}
+.fc th {
+  border-left-width: 0px !important;
+  border-top-width: 0px !important;
+  border-right-width: 0px !important;
+  border-bottom-width: 1px !important;
+}
+
+a.fc-daygrid-event.fc-daygrid-dot-event.fc-event.fc-event-start.fc-event-end.fc-event-past {
+  background: white;
+}
+
+th.fc-col-header-cell.fc-day {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.fc-col-header-cell-cushion {
+  font-weight: 300;
+}
+
+.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr button,
+.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr button:hover,
+.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr button:active,
+button.fc-dayGridMonth-button.fc-button.fc-button-primary.fc-button-active,
+button.fc-listMonth-button.fc-button.fc-button-primary.fc-button-active {
+  background: #ffffff;
+  border-width: 1px;
+  border-color: #e8e8e8;
+  border-radius: 0px;
+  color: #161616;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  outline: none !important;
+}
+
+tbody {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #85888f !important;
+}
+
+.fc .fc-daygrid-day-top {
+  display: flex;
+  flex-direction: row !important;
+  padding: 8px 16px !important;
+}
+
+button.fc-dayGridMonth-button.fc-button.fc-button-primary.fc-button-active,
+button.fc-listMonth-button.fc-button.fc-button-primary.fc-button-active {
+  background: #517760 !important;
+  color: #ffffff !important;
+}
+
+.fc-button {
+  box-shadow: none !important;
+}
+
+a.fc-daygrid-event.fc-daygrid-block-event.fc-h-event.fc-event.fc-event-start.fc-event-end.fc-event-past {
+  border-color: #517760;
+  border-radius: 0px;
+}
+
+@media (min-width: 768px) {
+  .fc-toolbar.fc-header-toolbar {
+    display: flex;
+    flex-direction: row;
+  }
+  tbody {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #85888f !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .fc-toolbar.fc-header-toolbar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fc-toolbar-chunk {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .fc-toolbar-chunk:last-child {
+    display: none;
+  }
+}
