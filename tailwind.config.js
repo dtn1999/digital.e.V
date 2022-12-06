@@ -16,6 +16,14 @@ module.exports = {
         },
         secondary: "#f2f2f2",
         black: "#161616",
+        accent: {
+          DEFAULT: "#d5b976",
+        },
+        error: {
+          DEFAULT: "#eb0e41",
+        },
+        tertiary: "#929292",
+        secondary: "#f0f0f0",
       },
       borderColor: {
         md: "4px",
