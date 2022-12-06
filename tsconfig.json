@@ -13,8 +13,46 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@app/animations": ["src/animations"],
+      "@app/animations/*": ["src/animations/*"],
+      "@app/components": ["__components"],
+      "@app/components/*": ["__components/*"],
+      "@app/features": ["src/features"],
+      "@app/features/*": ["src/features/*"],
+      "@app/hooks": ["__components/Blocks/hooks"],
+      "@app/hooks/*": ["__components/Blocks/hooks/*"],
+      "@app/lib": ["src/lib"],
+      "@app/lib/*": ["src/lib/*"],
+      "@app/requests-fragments": ["src/lib/graphql/fragments"],
+      "@app/requests-fragments/*": ["src/lib/graphql/fragments/*"],
+      "@app/requests-queries": ["src/lib/graphql/queries"],
+      "@app/requests-queries/*": ["src/lib/graphql/queries/*"],
+      "@app/requests-mutations": ["src/lib/graphql/mutations"],
+      "@app/requests-mutations/*": ["src/lib/graphql/mutations/*"],
+      "@app/styles": ["src/styles"],
+      "@app/styles/*": ["src/styles/*"],
+      "@app/theme": ["src/theme"],
+      "@app/theme/*": ["src/theme/*"],
+      "@app/theme/blocks": ["src/theme/blocks"],
+      "@app/theme/blocks/*": ["src/theme/blocks/*"],
+      "@app/theme/layout": ["src/theme/layout"],
+      "@app/theme/layout/*": ["src/theme/layout/*"],
+      "@app/theme/sections": ["src/theme/sections"],
+      "@app/theme/sections/*": ["src/theme/sections/*"],
+      "@app/types": ["src/types"],
+      "@app/types/*": ["src/types/*"],
+      "@app/utils": ["src/utils"],
+      "@app/utils/*": ["src/utils/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
