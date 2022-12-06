@@ -1,20 +1,25 @@
 /** @type {import('next').NextConfig} */
+const withTM = require("next-transpile-modules")([
+  "@fullcalendar/common",
+  "@babel/preset-react",
+  "@fullcalendar/common",
+  "@fullcalendar/daygrid",
+  "@fullcalendar/interaction",
+  "@fullcalendar/react",
+  "@fullcalendar/timegrid",
+  "@fullcalendar/list",
+]);
+
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+  reactStrictMode: false,
+  swcMinify: false,
   images: {
-    domains: [
-      "media.graphassets.com",
-      "images.unsplash.com",
-      "picsum.photos",
-      "images.pexels.com",
-      "www.pexels.com",
-      "i.imgur.com",
-      "digitalebildungfueralle.org",
-      "promo-theme.com",
-      "a.storyblok.com",
-    ],
+    domains: ["media.graphassets.com", "a.storyblok.com"],
   },
+  // i18n: {
+  //   //locales: ["en"],
+  //   // defaultLocale: "en",
+  // },
 };
 
-module.exports = nextConfig;
+module.exports = withTM({ ...nextConfig });
