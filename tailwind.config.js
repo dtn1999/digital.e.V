@@ -13,7 +13,7 @@ module.exports = {
         secondary: "#f2f2f2",
         black: "#161616",
         accent: {
-          DEFAULT: "#d5b976",
+          DEFAULT: "#F2780C",
         },
         error: {
           DEFAULT: "#eb0e41",
