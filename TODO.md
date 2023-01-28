@@ -1,0 +1,1 @@
+make my components  as responsive as possible
