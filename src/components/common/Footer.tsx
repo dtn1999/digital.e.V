@@ -4,6 +4,8 @@ import Container from "../Container";
 import ReactIconsLoader from "./ReactIconsLoader";
 import SocialsHandles from "./SocialsHandles";
 import { StoryblokComponent } from "@storyblok/react";
+import ContactForm from "@app/features/from/ContactForm";
+import { DialogWrapper } from "../Dialog";
 interface Props {
   footerLinks: any;
   seo: any;
@@ -11,7 +13,7 @@ interface Props {
 
 const Footer: React.FC<Props> = React.memo(
   ({ seo: { socials, ...contactDetails } }) => {
-    console.log
+    console.log;
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
     function closeModal() {
@@ -65,11 +67,11 @@ const Footer: React.FC<Props> = React.memo(
             <div className="m-4">
               <h2 className="text-xl font-semibold mb-2 capitalize">contact</h2>
               <div>
-                Digitale Bildung für Alle e.V.
+                Digital e.V.
                 <br />
-                Kleine Hamburger Str. 15 10117 Berlin
+                {contactDetails.address}
                 <br />
-                info@digitalebildungfueralle.org
+                {contactDetails.email}
               </div>
 
               <button
@@ -90,6 +92,9 @@ const Footer: React.FC<Props> = React.memo(
             </div>
           </div>
         </Container>
+        <DialogWrapper isOpen={isOpen} closeModal={closeModal}>
+          <ContactForm />
+        </DialogWrapper>
       </footer>
     );
   }

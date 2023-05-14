@@ -16,9 +16,7 @@ import FormInput from "src/components/form/FormInput";
 import FormTextarea from "src/components/form/FormTextarea";
 import FormCheckbox from "src/components/form/FormCheckbox";
 
-interface Props {
-  blok: any;
-}
+interface Props {}
 
 interface ContactFormData {
   firstName: string;
@@ -27,7 +25,7 @@ interface ContactFormData {
   message: string;
 }
 
-const ContactForm: React.FC<Props> = ({ blok }) => {
+const ContactForm: React.FC<Props> = ({}) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const methods = useForm<ContactFormData>({
@@ -64,7 +62,7 @@ const ContactForm: React.FC<Props> = ({ blok }) => {
   );
 
   return (
-    <div {...storyblokEditable(blok)} className={cn("w-full px-8")}>
+    <div className={cn("bg-white w-full px-8 py-8")}>
       <Modal isOpen={isOpen} openModal={openModal} closeModal={closeModal}>
         <Dialog.Title
           as="h3"
