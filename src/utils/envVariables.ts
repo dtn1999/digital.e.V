@@ -12,3 +12,4 @@ export const EMAIL_PUBLIC_KEY="";
 export const EMAIL_SERVICE_ID="";
 export const EMAIL_TEMPLATE_ID="";
 export const GOOGLE_RECAPTCHA_SECRET_KEY="";
+export const GOOGLE_RECAPTCHA_SITE_KEY="";

@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import { useForm } from "react-hook-form";
 import { BaseProps } from "@app/types";
-import LoadingDots from "src/components/common/LoadingDots";
+import { LoadingDots } from "src/components/common/LoadingDots";
 import ReactIconsLoader from "src/components/common/ReactIconsLoader";
 
 interface SubmitButtonProps extends BaseProps {

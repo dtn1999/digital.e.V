@@ -19,6 +19,8 @@ import { createStoryClient } from "@app/lib/clients/storyblok";
 import { apiPlugin, storyblokInit } from "@storyblok/react";
 import { STORY_BLOK_COMPONENTS } from "src/components/storyblok-registry";
 import { PageProps } from "@app/types";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { GOOGLE_RECAPTCHA_SITE_KEY } from "@app/utils/envVariables";
 
 storyblokInit({
   accessToken: String(process.env.NEXT_PUBLIC_STORY_BLOK_ACCESS_TOKEN),
@@ -30,11 +32,21 @@ storyblokInit({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <SWRConfig value={{ fetcher: storyBlokFetcher }}>
-      <Layout config={(pageProps as PageProps).layout}>
-        <Component {...pageProps} />
-      </Layout>
-    </SWRConfig>
+    <GoogleReCaptchaProvider
+      reCaptchaKey={GOOGLE_RECAPTCHA_SITE_KEY}
+      scriptProps={{
+        async: false,
+        defer: false,
+        appendTo: "head",
+        nonce: undefined,
+      }}
+    >
+      <SWRConfig value={{ fetcher: storyBlokFetcher }}>
+        <Layout config={(pageProps as PageProps).layout}>
+          <Component {...pageProps} />
+        </Layout>
+      </SWRConfig>
+    </GoogleReCaptchaProvider>
   );
 }
 

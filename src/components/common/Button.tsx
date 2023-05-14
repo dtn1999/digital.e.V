@@ -3,7 +3,6 @@ import cn from "classnames";
 import { BaseProps } from "@app/types";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { on } from "events";
 
 type Theme = "Primary" | "Secondary";
 
