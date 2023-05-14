@@ -23,7 +23,7 @@ const Layout: React.FC<Props> = React.memo(({ children, config }) => {
       <main className="relative flex min-h-[80vh] w-full grow flex-col overflow-x-hidden">
         {children}
       </main>
-      <Footer socials={seo && seo.socials} footerLinks={footerLinks} />
+      <Footer seo={seo} footerLinks={footerLinks} />
     </React.Fragment>
   );
 });
