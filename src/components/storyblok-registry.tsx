@@ -29,7 +29,6 @@ import FormCheckbox from "./form/FormCheckbox";
 import FormInput from "./form/FormInput";
 import FormSelect from "./form/FormSelect";
 import FormTextarea from "./form/FormTextarea";
-import FormSelectOption from "./form/FormSelectOption";
 import FlexBox from "./FlexBox";
 import FormSubmit from "./form/FormSubmit";
 import Collaborator from "./Collaborator";
@@ -83,7 +82,6 @@ export const STORY_BLOK_COMPONENTS = {
   FormTextarea,
   FormSelect,
   FormCheckbox,
-  FormSelectOption,
   FlexBox,
   FormSubmit,
 };
