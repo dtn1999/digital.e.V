@@ -35,6 +35,7 @@ import Collaborator from "./Collaborator";
 import AllServices from "./AllServices";
 import Service from "./Service";
 import MemberCard from "./MemberCard";
+import TestimonialSection from "./TestimonialSection";
 
 const CollaboratorsCarousel = dynamic(() => import("./CollaboratorsCarousel"), {
   ssr: false,
@@ -84,4 +85,5 @@ export const STORY_BLOK_COMPONENTS = {
   FormCheckbox,
   FlexBox,
   FormSubmit,
+  TestimonialSection,
 };
