@@ -10,6 +10,9 @@ import Button from "src/components/common/Button";
 import { removePrefix } from "@app/utils/navigation";
 import { useClickOutside } from "src/hooks/useClickOutside";
 import { useRouter } from "next/router";
+import { useDialogs } from "src/hooks/useDialogs";
+import { DialogWrapper } from "../Dialog";
+import ContactForm from "@app/features/from/ContactForm";
 
 interface Props {
   blok: any;
@@ -26,6 +29,7 @@ const MainNavigation: React.FC<Props> = ({ blok }) => {
   }, []);
 
   const nodeRef = useClickOutside(closeMobileNav);
+  const { isOpen, openModal, closeModal } = useDialogs();
 
   React.useEffect(() => {
     router.events.on("routeChangeStart", closeMobileNav);
@@ -87,10 +91,7 @@ const MainNavigation: React.FC<Props> = ({ blok }) => {
             <Button
               key={blok.cta[0].id}
               variant="solid"
-              href={{
-                ...blok.cta[0].href,
-                as: removePrefix(blok.cta[0].href.cached_url, "pages"),
-              }}
+              onClick={openModal}
               className="hidden text-sm font-medium lg:flex lg:text-xs"
             >
               <span>{blok.cta[0].label}</span>
@@ -136,10 +137,7 @@ const MainNavigation: React.FC<Props> = ({ blok }) => {
                   <Button
                     key={blok.cta[0].id}
                     variant="solid"
-                    href={{
-                      ...blok.cta[0].href,
-                      as: removePrefix(blok.cta[0].href.cached_url, "pages"),
-                    }}
+                    onClick={openModal}
                     className="my-4 w-full text-sm font-medium lg:flex lg:text-xs"
                   >
                     <span>{blok.cta[0].label}</span>
@@ -150,6 +148,9 @@ const MainNavigation: React.FC<Props> = ({ blok }) => {
           </motion.div>
         )}
       </AnimatePresence>
+      <DialogWrapper isOpen={isOpen} closeModal={closeModal}>
+        <ContactForm />
+      </DialogWrapper>
     </React.Fragment>
   );
 };

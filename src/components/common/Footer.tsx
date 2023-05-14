@@ -6,6 +6,7 @@ import SocialsHandles from "./SocialsHandles";
 import { StoryblokComponent } from "@storyblok/react";
 import ContactForm from "@app/features/from/ContactForm";
 import { DialogWrapper } from "../Dialog";
+import { useDialogs } from "src/hooks/useDialogs";
 interface Props {
   footerLinks: any;
   seo: any;
@@ -14,16 +15,7 @@ interface Props {
 const Footer: React.FC<Props> = React.memo(
   ({ seo: { socials, ...contactDetails } }) => {
     console.log;
-    const [isOpen, setIsOpen] = React.useState<boolean>(false);
-
-    function closeModal() {
-      setIsOpen(false);
-    }
-
-    function openModal() {
-      setIsOpen(true);
-    }
-
+    const { isOpen, closeModal, openModal } = useDialogs();
     return (
       <footer className="relative w-full bg-primary">
         <div className="w-full bg-[#E8E8E8]">

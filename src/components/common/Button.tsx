@@ -3,6 +3,7 @@ import cn from "classnames";
 import { BaseProps } from "@app/types";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { on } from "events";
 
 type Theme = "Primary" | "Secondary";
 
@@ -36,7 +37,7 @@ const Button: React.FC<Props> = React.memo(
       <div
         //type={type || "button"}
         // onClick={onClick}
-        onClick={handleNavigation}
+        onClick={onClick || handleNavigation}
         className={cn(
           {
             "whitespace-nowrap flex justify-center items-center border px-5 py-3 leading-5 outline-none lg:text-sm xl:text-xs font-normal uppercase first-letter:uppercase cursor-pointer duration-700 group hover:decoration-0 border-primary":
