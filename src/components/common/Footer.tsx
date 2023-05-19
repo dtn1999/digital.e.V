@@ -98,7 +98,7 @@ const Footer: React.FC<Props> = React.memo(
                 />
               </div>
               <div>
-                <p>© 2023 Digitale e.V.</p>
+                <p>© 2023 DiGiTal e.V.</p>
                 <div className="underline grid grid-cols-2 divide-y">
                   <a href="">impressum</a>
                   <a href="">data privacy</a>
