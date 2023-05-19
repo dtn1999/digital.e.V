@@ -38,7 +38,7 @@ const TestimonialSection: React.FC<Props> = React.memo(({ blok }) => {
         className="relative h-full w-full px-4"
       >
         {testimonials.map((testimonial: any) => (
-          <SwiperSlide key={testimonial.id} className="h-full w-full">
+          <SwiperSlide key={testimonial._uid} className="h-full w-full">
             <div className="grid grid-cols-1 bg-secondary md:grid-cols-2">
               <div className="relative h-[600px] w-full">
                 <Image
